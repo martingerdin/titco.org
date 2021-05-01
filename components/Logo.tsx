@@ -4,8 +4,12 @@ const LogoStyled = styled.div`
     font-weight: 900;
 `;
 
-export default function Logo() {
+interface logoProps {
+  size?: string,
+}
+
+export default function Logo({ size = "3" }:logoProps) {
   return (
-    <LogoStyled className="title is-3">TITCO</LogoStyled>
+    <LogoStyled className={`title is-${size}`}>TITCO</LogoStyled>
   )
 }
