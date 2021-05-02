@@ -33,7 +33,6 @@ export default function Layout({children, title = "Title"}: layoutProps) {
 	    </div>
 	</section>
 	<section className="section">
-	    <p>Path {pathname}</p>
 	    {children}
 	</section>
     </>
