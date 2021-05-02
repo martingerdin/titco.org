@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import Navbar from "./Navbar";
 
 interface layoutProps {
@@ -6,6 +6,8 @@ interface layoutProps {
 }
 
 export default function Layout({children}: layoutProps) {
+  useEffect(() => {document.querySelector("body").classList.add("has-navbar-fixed-top")})
+  
   return (
     <>
 	<Navbar />

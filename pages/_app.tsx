@@ -1,6 +1,11 @@
 import "../styles/styles.scss";
 
-function MyApp({ Component, pageProps }) {
+interface myAppProps {
+  Component: any,
+  pageProps: any
+}
+
+function MyApp({ Component, pageProps }:myAppProps) {
   return <Component {...pageProps} />
 }
 
