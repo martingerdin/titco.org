@@ -14,10 +14,9 @@ export default function PublicationsPage() {
     <Layout title="Publications">
 	<section className="section">
 	    <GridStyled>
-	    {publications.map((publication) => {
-	      const {AUTHOR, TITLE, VOLUME, NUMBER, URL, JOURNAL, YEAR, MONTH, PAGES} = publication;
-	      return(
-		<div className="">
+		{publications.map((publication) => {
+		  const {AUTHOR, TITLE, VOLUME, NUMBER, URL, JOURNAL, YEAR, MONTH, PAGES} = publication;
+		  return(
 		    <Publication
 		      authors={AUTHOR.join(", ")}
 		      title={TITLE}
@@ -29,9 +28,8 @@ export default function PublicationsPage() {
 		      issue={NUMBER}
 		      pages={PAGES}
 		    />
-		</div>
-	      );
-	    })}
+		  );
+		})}
 	    </GridStyled>
 	</section>
     </Layout>
