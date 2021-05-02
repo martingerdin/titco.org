@@ -3,7 +3,11 @@ import Link from "next/link";
 import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
 
-export default function Navbar() {
+interface navbarProps {
+  activePage: string
+}
+
+export default function Navbar({ activePage }: navbarProps) {
   const [isActive, setIsActive] = useState(false);
   
   return (
@@ -28,37 +32,37 @@ export default function Navbar() {
 	<div
 	  id="navbarExampleTransparentExample"
 	  className={`navbar-menu ${isActive ? 'is-active' : ''}`}
-	>
-	    <div className="navbar-start">
-		<Link href="/" passHref>
-		    <a className="navbar-item">
-			Home
-		    </a>
-		</Link>
-		<Link href="/publications" passHref>
-		    <a className="navbar-item">
-			Publications
-		    </a>
-		</Link>
-		<Link href="/projecs" passHref>
-		    <a className="navbar-item">
-			Projects
-		    </a>
-		</Link>
-		<Link href="/data" passHref>
-		    <a className="navbar-item">
-			Data
-		    </a>
-		</Link>
-	    </div>
+    >
+    <div className="navbar-start">
+	<Link href="/" passHref>
+	    <a className="navbar-item">
+		Home
+	    </a>
+	</Link>
+	<Link href="/publications" passHref>
+	    <a className={`navbar-item ${activePage === "Publications" ? "is-active" : ""}`}>
+		Publications
+	    </a>
+	</Link>
+	<Link href="/projects" passHref>
+	    <a className={`navbar-item ${activePage === "Projects" ? "is-active" : ""}`}>
+		Projects
+	    </a>
+	</Link>
+	<Link href="/data" passHref>
+	    <a className={`navbar-item ${activePage === "Data" ? "is-active" : ""}`}>
+		Data
+	    </a>
+	</Link>
+    </div>
 
-	    <div className="navbar-end">
-		<div className="navbar-item">
-		    <div className="field is-grouped">
-			<SocialLinks dropdown={`${isActive ? "is-up" : ""}`} />
-		    </div>
-		</div>
+    <div className="navbar-end">
+	<div className="navbar-item">
+	    <div className="field is-grouped">
+		<SocialLinks dropdown={`${isActive ? "is-up" : ""}`} />
 	    </div>
+	</div>
+    </div>
 	</div>
     </nav>    
   );

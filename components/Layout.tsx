@@ -18,7 +18,7 @@ export default function Layout({children, title = "Title"}: layoutProps) {
   
   return (
     <>
-	<Navbar />
+	<Navbar activePage={pagename}/>
 	<section className="section">
 	    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 		<ul>
