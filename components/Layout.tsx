@@ -20,7 +20,7 @@ export default function Layout({children, title = "Title"}: layoutProps) {
     <>
 	<Navbar />
 	<section className="section">
-	    <nav className="breadcrumb" aria-label="breadcrumbs">
+	    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 		<ul>
 		    <li><Link href="/"><a>Home</a></Link></li>
 		    <li className="is-active"><Link href={pathname}><a>{pagename}</a></Link></li>
@@ -28,9 +28,9 @@ export default function Layout({children, title = "Title"}: layoutProps) {
 	    </nav>
 	</section>
 	<section className="section">
-		<div className="container has-text-centered">
-		    <h1 className="title">{title}</h1>		    
-		</div>
+	    <div className="container has-text-centered">
+		<h1 className="title">{title}</h1>		    
+	    </div>
 	</section>
 	<section className="section">
 	    <p>Path {pathname}</p>
