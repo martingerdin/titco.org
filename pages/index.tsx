@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { mdiCheck, mdiGithub, mdiSlack, mdiBookOpen, mdiDatabase, mdiSend } from "@mdi/js";
 import Image from "next/image";
 import Logo from "../components/Logo";
-import DropdownLinks from "../components/DropdownLinks";
+import SocialLinks from "../components/SocialLinks";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
 	<section className="hero is-fullheight">
 	    <div className="hero-header">
 		<div className="container has-text-centered my-4">
-		    <DropdownLinks />
+		    <SocialLinks />
 		</div>
 	    </div>
 	    <div className="hero-body">

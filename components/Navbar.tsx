@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-import DropdownLinks from "./DropdownLinks";
+import SocialLinks from "./SocialLinks";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -30,44 +30,32 @@ export default function Navbar() {
 	  className={`navbar-menu ${isActive ? 'is-active' : ''}`}
 	>
 	    <div className="navbar-start">
-		<a className="navbar-item" href="https://versions.bulma.io/0.7.0/">
-		    Home
-		</a>
-		<div className="navbar-item has-dropdown is-hoverable">
-		    <a className="navbar-link" href="/documentation/overview/start/">
-			Docs
+		<Link href="/" passHref>
+		    <a className="navbar-item">
+			Home
 		    </a>
-		    <div className="navbar-dropdown">
-			<a className="navbar-item" href="/documentation/overview/start/">
-			    Overview
-			</a>
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/modifiers/syntax/">
-			    Modifiers
-			</a>
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/columns/basics/">
-			    Columns
-			</a>
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/layout/container/">
-			    Layout
-			</a>
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/form/general/">
-			    Form
-			</a>
-			<hr className="navbar-divider" />
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/elements/box/">
-			    Elements
-			</a>
-			<a className="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/components/breadcrumb/">
-			    Components
-			</a>
-		    </div>
-		</div>
+		</Link>
+		<Link href="/publications" passHref>
+		    <a className="navbar-item">
+			Publications
+		    </a>
+		</Link>
+		<Link href="/projecs" passHref>
+		    <a className="navbar-item">
+			Projects
+		    </a>
+		</Link>
+		<Link href="/data" passHref>
+		    <a className="navbar-item">
+			Data
+		    </a>
+		</Link>
 	    </div>
 
 	    <div className="navbar-end">
 		<div className="navbar-item">
 		    <div className="field is-grouped">
-			<DropdownLinks />
+			<SocialLinks dropdown={`${isActive ? "is-up" : ""}`} />
 		    </div>
 		</div>
 	    </div>

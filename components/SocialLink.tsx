@@ -2,15 +2,17 @@ import Link from "next/link";
 import Icon from "@mdi/react";
 import styled from "styled-components";
 
-interface dropdownLinkProps {
+interface socialLinkProps {
   href: string,
   icon: any,
   id: string,
   text: string,
+  dropdown?: string,
+  align?: "" | "is-right",
   iconSize?: string
 }
 
-export default function DropdownLink({href, icon, id, text, iconSize = "large"}: dropdownLinkProps) {
+export default function SocialLink({href, icon, id, text, dropdown = "", align = "", iconSize = "large"}: socialLinkProps) {
   const SpanStyled = styled.span`
       :hover {
       cursor: pointer;
@@ -19,7 +21,7 @@ export default function DropdownLink({href, icon, id, text, iconSize = "large"}:
   `;
   
   return (
-    <div className="dropdown is-hoverable">
+    <div className={`dropdown is-hoverable ${dropdown} ${align}`}>
 	<div className="dropdown-trigger">
 	    <Link href={href} passHref>
 		<a>
