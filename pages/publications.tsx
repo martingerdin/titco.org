@@ -1,5 +1,9 @@
+import Layout from "../components/Layout";
+
 export default function PublicationsPage() {
   return (
-    <p>Publications</p>
+    <Layout>
+	<p>Publications</p>
+    </Layout>
   );
 }
