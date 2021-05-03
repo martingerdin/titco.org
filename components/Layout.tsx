@@ -6,10 +6,11 @@ import capitalise from "../lib/capitalise";
 
 interface layoutProps {
   children: ReactElement | ReactElement[],
-  title?: string
+  title?: string,
+  subtitle?: string
 }
 
-export default function Layout({children, title = "Title"}: layoutProps) {
+export default function Layout({children, title = "Title", subtitle = ""}: layoutProps) {
   useEffect(() => {document.querySelector("body").classList.add("has-navbar-fixed-top")})
 
   const router = useRouter();
@@ -29,7 +30,8 @@ export default function Layout({children, title = "Title"}: layoutProps) {
 	</section>
 	<section className="section">
 	    <div className="container has-text-centered">
-		<h1 className="title">{title}</h1>		    
+		<h1 className="title">{title}</h1>
+		{subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
 	    </div>
 	</section>
 	<section className="section">

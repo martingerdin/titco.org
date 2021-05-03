@@ -24,7 +24,7 @@ export default function PublicationsPage() {
     });
   
   return (
-    <Layout title="Publications">
+    <Layout title="Publications" subtitle="Our published work 2012-2021">
 	<section className="section">
 	    <GridStyled>
 		{sortedPublications
