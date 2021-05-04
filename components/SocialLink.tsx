@@ -12,14 +12,14 @@ interface socialLinkProps {
   iconSize?: string
 }
 
+const SpanStyled = styled.span`
+    :hover {
+    cursor: pointer;
+    color: black;
+    }
+`;
+
 export default function SocialLink({href, icon, id, text, dropdown = "", align = "", iconSize = "large"}: socialLinkProps) {
-  const SpanStyled = styled.span`
-      :hover {
-      cursor: pointer;
-      color: black;
-      }
-  `;
-  
   return (
     <div className={`dropdown is-hoverable ${dropdown} ${align}`}>
 	<div className="dropdown-trigger">
