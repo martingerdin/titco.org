@@ -28,20 +28,22 @@ export default function PublicationsPage() {
 	<section className="section">
 	    <GridStyled>
 		{sortedPublications
-		  .map((publication) => {
+		  .map((publication, key) => {
 		    const {AUTHOR, TITLE, VOLUME, NUMBER, URL, JOURNAL, YEAR, MONTH, PAGES} = publication;
 		    return(
-		      <Publication
-			authors={AUTHOR.join(", ")}
-			title={TITLE}
-			url={URL}
-			journal={JOURNAL}
-			year={YEAR.toString()}
-			month={MONTH}
-			volume={VOLUME}
-			issue={NUMBER}
-			pages={PAGES}
-		      />
+		      <div className="block" key={key}>
+			  <Publication
+			    authors={AUTHOR.join(", ")}
+			    title={TITLE}
+			    url={URL}
+			    journal={JOURNAL}
+			    year={YEAR.toString()}
+			    month={MONTH}
+			    volume={VOLUME}
+			    issue={NUMBER}
+			    pages={PAGES}
+			  />
+		      </div>
 		    );
 		})}
 	    </GridStyled>
