@@ -33,7 +33,7 @@ export default function PublicationsPage() {
 	    {years.sort().map((year, key) => {
 	      return <button
 		       key={key}
-		       className={`button ${selectedYears.includes(year) ? "is-selected is-primary" : ""}`}
+		       className={`button is-outlined ${selectedYears.includes(year) ? "is-selected is-primary" : ""}`}
 		       onClick={() => {
 			 if (years.every(year => selectedYears.includes(year))) {
 			   setSelectedYears([year]);
