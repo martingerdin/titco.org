@@ -19,11 +19,11 @@ export default function PublicationsPage() {
   const years = [...new Set(sortedPublications.map((publication) => publication.YEAR))];
   return (
     <Layout title="Publications" subtitle={`Our published work ${years[years.length - 1]}-${new Date().getUTCFullYear()}`}>
-	<div className="buttons is-centered">
-	    {years.map((year, key) => {
+	<div className="buttons is-centered has-addons">
+	    {years.sort().map((year, key) => {
 	      return <button
 		       key={key}
-		       className={`button ${currentYear === year.toString() ? "is-active" : ""}`}
+		       className={`button ${currentYear === year.toString() ? "is-selected is-primary" : ""}`}
 		       onClick={() => setCurrentYear(year.toString()) }>{year}</button>
 	    })}
 	</div>
