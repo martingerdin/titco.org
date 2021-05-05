@@ -20,6 +20,12 @@ export default function PublicationsPage() {
   return (
     <Layout title="Publications" subtitle={`Our published work ${years[years.length - 1]}-${new Date().getUTCFullYear()}`}>
 	<div className="buttons is-centered has-addons">
+	    <button
+	      className={`button ${currentYear === "all" ? "is-selected is-primary" : ""}`}
+	      onClick={() => setCurrentYear("all") }
+	    >
+		All years
+	    </button>
 	    {years.sort().map((year, key) => {
 	      return <button
 		       key={key}
