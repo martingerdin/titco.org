@@ -52,7 +52,7 @@ export default function Home() {
 	    </div>
 	    <div className="hero-footer has-background-light">
 		<div className="container has-text-centered my-5">
-		    <p>Copyright &copy; 2021 TITCO | 
+		    <p>Copyright &copy; {new Date().getUTCFullYear()} TITCO | 
 			Made with <Link href="https://nextjs.org/"><a>Next.js</a></Link>,&nbsp; 
     <Link href="https://bulma.io/"><a>Bulma</a></Link>, and&nbsp;
     <Link href="https://styled-components.com/"><a>Styled Components</a></Link>&nbsp;
