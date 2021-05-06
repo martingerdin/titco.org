@@ -2,6 +2,7 @@ import { ReactElement, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import capitalise from "../lib/capitalise";
 
 interface layoutProps {
@@ -37,6 +38,7 @@ export default function Layout({children, title = "Title", subtitle = ""}: layou
 	<section className="section">
 	    {children}
 	</section>
+	<Footer />
     </>
   );
 }
