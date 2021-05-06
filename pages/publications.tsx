@@ -17,6 +17,10 @@ export default function PublicationsPage() {
     });
   const years = [...new Set(sortedPublications.map((publication) => publication.YEAR))];
   const [selectedYears, setSelectedYears] = useState(years);
+  // Make sure that all publications are shown if the user deselects all years
+  if (selectedYears.length === 0) {
+    setSelectedYears(years);
+  }
   return (
     <Layout title="Publications" subtitle={`Our published work ${years[years.length - 1]}-${new Date().getUTCFullYear()}`}>
 	<div className="buttons is-centered has-addons">
@@ -41,9 +45,10 @@ export default function PublicationsPage() {
 			   setSelectedYears([...selectedYears, year]);
 			 } else if (selectedYears.includes(year)) {
 			   setSelectedYears(selectedYears.filter(selectedYear =>  selectedYear !== year));
-			 }
+			 } 
 		       }
-		       }>
+		       }
+		     >
 		  {year}
 	      </button>
 	    })}
@@ -51,6 +56,7 @@ export default function PublicationsPage() {
 	<section className="section">
 	    <FlexStyled>
 		{
+		  // Show only those publications published in years selected by the user
 		  sortedPublications
 		    .filter(publication => selectedYears.includes(publication.YEAR))
 		    .map((publication, key) => {
