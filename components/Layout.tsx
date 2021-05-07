@@ -1,6 +1,7 @@
 import { ReactElement, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import styled from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import capitalise from "../lib/capitalise";
@@ -11,6 +12,16 @@ interface layoutProps {
   subtitle?: string
 }
 
+const ContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+`;
+
+const WrapperStyled = styled.div`
+    flex-grow: 1;
+`;
+
 export default function Layout({children, title = "Title", subtitle = ""}: layoutProps) {
   useEffect(() => {document.querySelector("body").classList.add("has-navbar-fixed-top")})
 
@@ -19,26 +30,28 @@ export default function Layout({children, title = "Title", subtitle = ""}: layou
   const pagename = capitalise(pathname.substring(1));
   
   return (
-    <>
-	<Navbar activePage={pagename}/>
-	<section className="section">
-	    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
-		<ul>
-		    <li><Link href="/"><a>Home</a></Link></li>
-		    <li className="is-active"><Link href={pathname}><a>{pagename}</a></Link></li>
-		</ul>
-	    </nav>
-	</section>
-	<section className="section">
-	    <div className="container has-text-centered">
-		<h1 className="title">{title}</h1>
-		{subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
-	    </div>
-	</section>
-	<section className="section">
-	    {children}
-	</section>
-	<Footer />
-    </>
+	<ContainerStyled>
+	    <Navbar activePage={pagename}/>
+	    <WrapperStyled>
+		<section className="section">
+		    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
+			<ul>
+			    <li><Link href="/"><a>Home</a></Link></li>
+			    <li className="is-active"><Link href={pathname}><a>{pagename}</a></Link></li>
+			</ul>
+		    </nav>
+		</section>
+		<section className="section">
+		    <div className="container has-text-centered">
+			<h1 className="title">{title}</h1>
+			{subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
+		    </div>
+		</section>
+		<section className="section">
+		    {children}
+		</section>
+	    </WrapperStyled>
+	    <Footer />
+	</ContainerStyled>
   );
 }

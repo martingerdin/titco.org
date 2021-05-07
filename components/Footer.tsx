@@ -1,16 +1,8 @@
 import Link from "next/link";
-import styled from "styled-components";
-
-const FooterStyled = styled.footer`
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-`;
 
 export default function Footer() {
   return (
-    <FooterStyled className="footer">
+    <footer className="footer">
 	<div className="content has-text-centered">
 	    <p>Copyright &copy; {new Date().getUTCFullYear()} TITCO | 
 		Made with <Link href="https://nextjs.org/"><a>Next.js</a></Link>,&nbsp; 
@@ -19,6 +11,6 @@ export default function Footer() {
     | This website is open source on <Link href="https://github.com/titco/titco.org/"><a>GitHub</a></Link>
     	    </p>
 	</div>
-    </FooterStyled>
+    </footer>
   );
 }
