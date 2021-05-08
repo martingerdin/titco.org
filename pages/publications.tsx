@@ -21,6 +21,8 @@ export default function PublicationsPage() {
   if (selectedYears.length === 0) {
     setSelectedYears(years);
   }
+  const selectedPublications =  sortedPublications
+    .filter(publication => selectedYears.includes(publication.YEAR))
   return (
     <Layout title="Publications" subtitle={`Our published work ${years[years.length - 1]}-${new Date().getUTCFullYear()}`}>
 	<div className="buttons is-centered has-addons">
@@ -53,12 +55,14 @@ export default function PublicationsPage() {
 	      </button>
 	    })}
 	</div>
+	<div className="content has-text-centered">
+	    <p className="subtitle">Showing {selectedPublications.length} of {publications.length} publications.</p>
+	</div>
 	<section className="section">
 	    <FlexStyled>
 		{
 		  // Show only those publications published in years selected by the user
-		  sortedPublications
-		    .filter(publication => selectedYears.includes(publication.YEAR))
+		  selectedPublications
 		    .map((publication, key) => {
 		      const {AUTHOR, TITLE, VOLUME, NUMBER, URL, JOURNAL, YEAR, MONTH, PAGES} = publication;
 		      return (
