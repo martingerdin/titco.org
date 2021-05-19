@@ -15,10 +15,12 @@ MyApp.getInitialProps = async function({ Component, ctx }) {
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
+  /*
   if (typeof pageProps === "string") {
     pageProps = {};
   }
   console.log(pageProps);
+*/
   pageProps.query = ctx.query;
   return { pageProps };
 };

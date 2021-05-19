@@ -1,10 +1,12 @@
-interface projectTemplateProps {
-  query: any;
-}
+import { useRouter } from "next/router";
 
-export default function ProjectTemplate ({query}: projectTemplateProps) {
+export default function ProjectTemplate () {
+  const router = useRouter();
+  console.log(router);
+  const { id } = router.query;
+  
   return (
-    <p>This is project {query?.id}</p>
+    <p>This is project {id}</p>
   );
 } 
 
