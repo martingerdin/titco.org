@@ -7,7 +7,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 MyApp.getInitialProps = async function({ Component, ctx }) {
@@ -15,6 +15,10 @@ MyApp.getInitialProps = async function({ Component, ctx }) {
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
+  if (typeof pageProps === "string") {
+    pageProps = {};
+  }
+  console.log(pageProps);
   pageProps.query = ctx.query;
   return { pageProps };
 };
