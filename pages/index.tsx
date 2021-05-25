@@ -1,9 +1,5 @@
 import { useEffect } from "react";
 import Link from "next/link";
-import Icon from "@mdi/react";
-import styled from "styled-components";
-import { mdiCheck, mdiGithub, mdiSlack, mdiBookOpen, mdiDatabase, mdiSend } from "@mdi/js";
-import Image from "next/image";
 import Logo from "../components/Logo";
 import SocialLinks from "../components/SocialLinks";
 
