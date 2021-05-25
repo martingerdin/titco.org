@@ -1,14 +1,7 @@
-import styled from "styled-components";
 import publications from "../components/publications.json";
 import Publication from "../components/Publication";
 import Layout from "../components/Layout";
 import { useState } from "react";
-
-const FlexStyled = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-`;
 
 export default function PublicationsPage() {
   const sortedPublications = [...publications]
@@ -59,7 +52,7 @@ export default function PublicationsPage() {
 	    <p className="subtitle">Showing {selectedPublications.length} of {publications.length} publications.</p>
 	</div>
 	<section className="section">
-	    <FlexStyled>
+	    <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
 		{
 		  // Show only those publications published in years selected by the user
 		  selectedPublications
@@ -82,7 +75,7 @@ export default function PublicationsPage() {
 		      );
 		    })
 		}
-	    </FlexStyled>
+	    </div>
 	</section>
     </Layout>
   );

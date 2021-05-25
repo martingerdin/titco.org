@@ -1,14 +1,9 @@
 import Icon from "@mdi/react";
 import { mdiOpenInNew } from "@mdi/js";
 import Link from "next/link";
-import styled from "styled-components";
 import copy from "copy-to-clipboard";
 import capitalise from "../lib/capitalise";
 import { useState } from "react";
-
-const CardStyled = styled.div`
-    max-width: 400px;
-`;
 
 interface publicationProps {
   authors: string,
@@ -34,7 +29,7 @@ export default function Publication({ authors, title, url, journal, year, month,
   }
   return (
     <>
-	<CardStyled className="card">
+	<div className="card" style={{maxWidth: "400px"}}>
 	    <header className="card-header">
 		<div className="card-header-title">
 		    <div className="tags">
@@ -96,7 +91,7 @@ export default function Publication({ authors, title, url, journal, year, month,
 
 		}
 	    </footer>
-        </CardStyled>
+        </div>
     </>
   )  
 }

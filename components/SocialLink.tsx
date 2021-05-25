@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Icon from "@mdi/react";
-import styled from "styled-components";
 
 interface socialLinkProps {
   href: string,
@@ -12,26 +11,19 @@ interface socialLinkProps {
   iconSize?: string
 }
 
-const SpanStyled = styled.span`
-    :hover {
-    cursor: pointer;
-    color: black;
-    }
-`;
-
 export default function SocialLink({href, icon, id, text, dropdown = "", align = "", iconSize = "large"}: socialLinkProps) {
   return (
     <div className={`dropdown is-hoverable ${dropdown} ${align}`}>
 	<div className="dropdown-trigger">
 	    <Link href={href} passHref>
 		<a>
-		    <SpanStyled
-		      className={`icon mx-2 is-${iconSize}`}
+		    <span
+		      className={`icon social-link mx-2 is-${iconSize}`}
 		      aria-haspopup="true"
 		      aria-controls={id}
 		    >
 			<Icon path={icon} />
-		    </SpanStyled>
+		    </span>
 		</a>
 	    </Link>
 	</div>
