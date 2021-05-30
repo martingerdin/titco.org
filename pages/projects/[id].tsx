@@ -1,19 +1,34 @@
-import { useRouter } from "next/router";
+import { join } from "path";
+import fs from "fs";
+import matter from "gray-matter";
 
-export default function ProjectTemplate () {
-  const router = useRouter();
-  console.log(router);
-  const { id } = router.query;
-  
+export default function ProjectTemplate ({project}: any) {
+  console.log(project);
   return (
-    <p>This is project {id}</p>
+    <p>This is project </p>
   );
-} 
-
-
-/*
-ProjectTemplate.getInitialProps = async (ctx: any) => {
-  const {id} = ctx.query;
-  return id;
 }
-*/
+
+const projectDir = join(process.cwd(), "_projects");
+
+export async function getStaticProps(context: any) {
+  const { params } = context;
+  const project = matter(fs.readFileSync(join(projectDir, params.id + ".md"), "utf8"));
+  return {
+    props: {project},
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = fs.readdirSync(projectDir)
+		  .map(path => path.replace(".md", ""))
+		  .map(path => {
+		    return (
+		      {params: {id: path},}
+		    )
+		  });
+  return {
+    paths: paths,
+    fallback: false,
+  }
+}
