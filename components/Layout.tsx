@@ -12,16 +12,6 @@ interface layoutProps {
   subtitle?: string
 }
 
-const ContainerStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-`;
-
-const WrapperStyled = styled.div`
-    flex-grow: 1;
-`;
-
 export default function Layout({children, title = "Title", subtitle = ""}: layoutProps) {
   useEffect(() => {document.querySelector("body").classList.add("has-navbar-fixed-top")})
 
@@ -30,9 +20,9 @@ export default function Layout({children, title = "Title", subtitle = ""}: layou
   const pagename = capitalise(pathname.substring(1));
   
   return (
-	<ContainerStyled>
+	<div style={{display: "flex", flexDirection: "column", minHeight: "100vh"}}>
 	    <Navbar activePage={pagename}/>
-	    <WrapperStyled>
+	    <div style={{flexGrow: 1}}>
 		<section className="section">
 		    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 			<ul>
@@ -50,8 +40,8 @@ export default function Layout({children, title = "Title", subtitle = ""}: layou
 		<section className="section">
 		    {children}
 		</section>
-	    </WrapperStyled>
+	    </div>
 	    <Footer />
-	</ContainerStyled>
+	</div>
   );
 }
