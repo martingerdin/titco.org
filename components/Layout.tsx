@@ -1,7 +1,6 @@
 import { ReactElement, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import styled from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import capitalise from "../lib/capitalise";
