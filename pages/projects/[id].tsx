@@ -1,11 +1,16 @@
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import Layout from "../../components/Layout";
 
 export default function ProjectTemplate ({project}: any) {
   console.log(project);
+  const { data, content } = matter(project);
+  const { title, subtitle } = data;
   return (
-    <p>This is project </p>
+    <Layout title={title}>
+	<p>This is project </p>
+    </Layout>
   );
 }
 
@@ -13,7 +18,7 @@ const projectDir = join(process.cwd(), "_projects");
 
 export async function getStaticProps(context: any) {
   const { params } = context;
-  const project = matter(fs.readFileSync(join(projectDir, params.id + ".md"), "utf8"));
+  const project = fs.readFileSync(join(projectDir, params.id + ".md"), "utf8");
   return {
     props: {project},
   }
