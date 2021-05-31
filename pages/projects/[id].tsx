@@ -8,7 +8,7 @@ export default function ProjectTemplate ({project}: any) {
   const { data, content } = matter(project);
   const { title, subtitle } = data;
   return (
-    <Layout title={title}>
+    <Layout title={title} currentPageName={data.pageName}>
 	<p>This is project </p>
     </Layout>
   );

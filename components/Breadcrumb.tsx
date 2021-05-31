@@ -3,9 +3,10 @@ import capitalise from "../lib/capitalise";
 
 interface breadcrumbProps {
   pathNames: string[];
+  currentPageName?: string | null;
 }
 
-export function Breadcrumb({ pathNames }: breadcrumbProps) {
+export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProps) {
   return (
     <section className="section">
 	<nav className="breadcrumb is-medium" aria-label="breadcrumbs">
@@ -19,11 +20,17 @@ export function Breadcrumb({ pathNames }: breadcrumbProps) {
 		      const link = `/${pathNames.slice(1, index + 1).join("/")}`
 		      return (
 			<li
-			    key={index}
-			    className={`${index === pathNames.length - 1 && "is-active"}`}
+			  key={index}
+			  className={`${index === pathNames.length - 1 && "is-active"}`}
 			>
 			    <Link href={link}>
-				<a>{capitalise(pathName)}</a>
+				<a>
+				    {
+				      index === pathNames.length - 1 && currentPageName !== null
+				      ? currentPageName
+				      : capitalise(pathName)
+				    }
+				</a>
 			    </Link>
 			</li>      
 		      );
