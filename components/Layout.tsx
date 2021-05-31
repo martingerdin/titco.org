@@ -1,8 +1,8 @@
 import { ReactElement, useEffect } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Breadcrumb } from "./Breadcrumb";
 import capitalise from "../lib/capitalise";
 
 interface layoutProps {
@@ -15,32 +15,25 @@ export default function Layout({children, title = "Title", subtitle = ""}: layou
   useEffect(() => {document.querySelector("body").classList.add("has-navbar-fixed-top")})
 
   const router = useRouter();
-  const { pathname } = router;
-  const pagename = capitalise(pathname.substring(1));
+  const { asPath } = router;
+  const pathNames = asPath.split("/");
   
   return (
-	<div style={{display: "flex", flexDirection: "column", minHeight: "100vh"}}>
-	    <Navbar activePage={pagename}/>
-	    <div style={{flexGrow: 1}}>
-		<section className="section">
-		    <nav className="breadcrumb is-medium" aria-label="breadcrumbs">
-			<ul>
-			    <li><Link href="/"><a>Home</a></Link></li>
-			    <li className="is-active"><Link href={pathname}><a>{pagename}</a></Link></li>
-			</ul>
-		    </nav>
-		</section>
-		<section className="section">
-		    <div className="container has-text-centered">
-			<h1 className="title">{title}</h1>
-			{subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
-		    </div>
-		</section>
-		<section className="section">
-		    {children}
-		</section>
-	    </div>
-	    <Footer />
+    <div style={{display: "flex", flexDirection: "column", minHeight: "100vh"}}>
+	<Navbar activePage={capitalise(pathNames[1])}/>
+	<div style={{flexGrow: 1}}>
+	    <Breadcrumb pathNames={pathNames} />
+	    <section className="section">
+		<div className="container has-text-centered">
+		    <h1 className="title">{title}</h1>
+		    {subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
+		</div>
+	    </section>
+	    <section className="section">
+		{children}
+	    </section>
 	</div>
+	<Footer />
+    </div>
   );
 }
