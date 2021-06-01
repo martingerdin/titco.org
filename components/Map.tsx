@@ -47,10 +47,12 @@ export function Map () {
 
       map.draw(data, options);
     };
+
+    console.log(process.env.NEXT_PUBLIC_GOOGLE_API_KEY);
     
     GoogleCharts.load(drawMap, {
       "packages": ["map"],
-      "mapsApiKey": process.env.GOOGLE_API_KEY,
+      "mapsApiKey": process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     });
   })
 
