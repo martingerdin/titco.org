@@ -32,17 +32,25 @@ export default function ProjectTemplate({ project }: any) {
     data;
   return (
     <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
-	<ProjectLevel
-          levelItems={[
-            { Centres: Object.keys(centres).length },
-            { Cities: cities },
-            { "Target Sample Size": targetSampleSize },
-          ]}
-	/>
-	<div className="container mx-6">
-	    <Map data={centres} />	  
-	</div>
-	<p>This is project {cities}</p>
+	<section className="section">
+	    <ProjectLevel
+              levelItems={[
+		{ Centres: Object.keys(centres).length },
+		{ Cities: cities },
+		{ "Target Sample Size": targetSampleSize },
+              ]}
+	    />
+	</section>
+	<section className="section">
+	    <div className="container mx-6">
+		<figure className="image is-3by2">
+		    <Map data={centres}/>
+		</figure>
+	    </div>
+	</section>
+	<section className="section">
+	    {content}
+	</section>
     </Layout>
   );
 }

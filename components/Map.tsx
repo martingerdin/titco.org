@@ -51,8 +51,9 @@ export function Map({ data }: mapProps) {
   });
 
   return (
-    <>
+    <div className="has-ratio">
 	<div
+	  className="has-background-light"
 	  style={{
             display: `${!mapIsLoaded ? "flex" : "none"}`,
 	    alignItems: "center",
@@ -60,7 +61,7 @@ export function Map({ data }: mapProps) {
             width: "100%",
             height: "100%",
 	  }}>
-	    <span className="button is-loading is-white"></span>
+	    <span className="button is-loading is-light"></span>
 	</div>
 	<div
 	  id="chart_div"
@@ -70,6 +71,6 @@ export function Map({ data }: mapProps) {
             height: "100%",
 	  }}
 	></div>
-    </>
+    </div>
   );
 }
