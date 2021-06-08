@@ -42,8 +42,13 @@ export default function ProjectTemplate({ project }: any) {
 	    />
 	</section>
 	<section className="section">
-	    <div className="container mx-6">
-		<figure className="image is-3by2">
+	    <div
+	      className="container"
+		style={{
+		  maxWidth: "1000px"
+		}}
+	    >
+		<figure className="image is-16by9">
 		    <Map data={centres}/>
 		</figure>
 	    </div>
