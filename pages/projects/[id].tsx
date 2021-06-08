@@ -1,6 +1,7 @@
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 
@@ -54,7 +55,7 @@ export default function ProjectTemplate({ project }: any) {
 	    </div>
 	</section>
 	<section className="section">
-	    {content}
+	    <ReactMarkdown>{content}</ReactMarkdown>
 	</section>
     </Layout>
   );
