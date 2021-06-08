@@ -5,45 +5,43 @@ import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 
 interface projectLevelProps {
-  levelItems: {[key: string]: string | number,}[]
+  levelItems: { [key: string]: string | number }[];
 }
 
-function ProjectLevel ({ levelItems }:projectLevelProps) {
+function ProjectLevel({ levelItems }: projectLevelProps) {
   return (
     <nav className="level">
-	{
-	  levelItems.map((item, key) => {
-	    return (
-	      <div className="level-item has-text-centered" key={key}>
-		  <div>
-		      <p className="heading">{Object.keys(item)}</p>
-		      <p className="title">{Object.values(item)}</p>
-		  </div>
-	      </div>
-	    );
-	  })
-	}
+      {levelItems.map((item, key) => {
+        return (
+          <div className="level-item has-text-centered" key={key}>
+            <div>
+              <p className="heading">{Object.keys(item)}</p>
+              <p className="title">{Object.values(item)}</p>
+            </div>
+          </div>
+        );
+      })}
     </nav>
   );
 }
 
-export default function ProjectTemplate ({project}: any) {
+export default function ProjectTemplate({ project }: any) {
   console.log(project);
   const { data, content } = matter(project);
-  const { title, pageName, subtitle, aim, centres, cities, targetSampleSize } = data;
+  const { title, pageName, subtitle, aim, centres, cities, targetSampleSize } =
+    data;
   return (
-    <Layout
-      title={title}
-      subtitle={subtitle}
-      currentPageName={pageName}>
-	<ProjectLevel levelItems={
-	[
-	  {"Centres": centres},
-	  {"Cities": cities},
-	  {"Target Sample Size": targetSampleSize},
-	]
-	} />
-	<Map />
+    <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
+	<ProjectLevel
+          levelItems={[
+            { Centres: Object.keys(centres).length },
+            { Cities: cities },
+            { "Target Sample Size": targetSampleSize },
+          ]}
+	/>
+	<div className="container mx-6">
+	    <Map data={centres} />	  
+	</div>
 	<p>This is project {cities}</p>
     </Layout>
   );
@@ -56,20 +54,19 @@ export async function getStaticProps(context: any) {
   const project = fs.readFileSync(join(projectDir, params.id + ".md"), "utf8");
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
   return {
-    props: {project},
-  }
+    props: { project },
+  };
 }
 
 export async function getStaticPaths() {
-  const paths = fs.readdirSync(projectDir)
-		  .map(path => path.replace(".md", ""))
-		  .map(path => {
-		    return (
-		      {params: {id: path},}
-		    )
-		  });
+  const paths = fs
+    .readdirSync(projectDir)
+    .map((path) => path.replace(".md", ""))
+    .map((path) => {
+      return { params: { id: path } };
+    });
   return {
     paths: paths,
     fallback: false,
-  }
+  };
 }
