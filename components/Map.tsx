@@ -1,5 +1,5 @@
 import { GoogleCharts } from "google-charts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface mapProps {
   data: location[];
@@ -12,42 +12,64 @@ interface location {
 }
 
 export function Map({ data }: mapProps) {
-  useEffect(() => {
-    const head = [
-      { type: "number", id: "Latitude" },
-      { type: "number", id: "Longitude" },
-      { type: "string", id: "Name" },
-    ];
+  const [mapIsLoaded, setMapIsLoaded] = useState(false);
 
-    function drawMap() {
-      const mapData = GoogleCharts.api.visualization.arrayToDataTable(
-        [].concat(
-          [head],
-          data.map((location) => {
-            const { latitude, longitude, name } = location;
-            return [latitude, longitude, name];
-          })
-        )
-      );
+  const head = [
+    { type: "number", id: "Latitude" },
+    { type: "number", id: "Longitude" },
+    { type: "string", id: "Name" },
+  ];
 
-      var options = {
-        showTooltip: true,
-        showInfoWindow: false,
-        mapType: "terrain",
-      };
+  function drawMap() {
+    const mapData = GoogleCharts.api.visualization.arrayToDataTable(
+      [].concat(
+        [head],
+        data.map((location) => {
+          const { latitude, longitude, name } = location;
+          return [latitude, longitude, name];
+        })
+      )
+    );
 
-      var map = new GoogleCharts.api.visualization.Map(
-        document.getElementById("chart_div")
-      );
+    var options = {
+      showTooltip: true,
+      showInfoWindow: false,
+      mapType: "terrain",
+    };
 
-      map.draw(mapData, options);
-    }
+    var map = new GoogleCharts.api.visualization.Map(
+      document.getElementById("chart_div")
+    );
 
-    GoogleCharts.load(drawMap, {
-      packages: ["map"],
-      mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
-    });
+    setMapIsLoaded(true);
+    map.draw(mapData, options);
+  }
+
+  GoogleCharts.load(drawMap, {
+    packages: ["map"],
+    mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
   });
 
-  return <div id="chart_div" style={{ width: "100%", height: "100%" }}></div>;
+  return (
+    <>
+	<div
+	  style={{
+            display: `${!mapIsLoaded ? "flex" : "none"}`,
+	    alignItems: "center",
+	    justifyContent: "center",
+            width: "100%",
+            height: "100%",
+	  }}>
+	    <span className="button is-loading is-white"></span>
+	</div>
+	<div
+	  id="chart_div"
+	  style={{
+            display: `${mapIsLoaded ? "block" : "none"}`,
+            width: "100%",
+            height: "100%",
+	  }}
+	></div>
+    </>
+  );
 }
