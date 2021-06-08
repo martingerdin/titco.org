@@ -36,9 +36,7 @@ export default function Layout(
 		    {subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
 		</div>
 	    </section>
-	    <section className="section">
-		{children}
-	    </section>
+	    {children}
 	</div>
 	<Footer />
     </div>
