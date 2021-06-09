@@ -55,7 +55,15 @@ export default function ProjectTemplate({ project }: any) {
 	    </div>
 	</section>
 	<section className="section">
-	    <ReactMarkdown>{content}</ReactMarkdown>
+	    <ReactMarkdown
+	      components={
+	      {
+		h1({children}) {
+		  return <h1 className="title">{children}</h1>
+		}
+	      }
+	      }
+	    >{content}</ReactMarkdown>
 	</section>
     </Layout>
   );
