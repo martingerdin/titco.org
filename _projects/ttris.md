@@ -1,6 +1,9 @@
 ---
 title: The Trauma Triage Study
 subtitle: A Prospective Cohort Study of Adult Trauma Patients Presenting to Emergency Departments in Urban India
+tags:
+  - heading: Status
+    value: Ongoing
 pageName: TTRIS
 aim: "To compare and validate prediction models for emergency department trauma triage"
 centres:
