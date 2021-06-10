@@ -74,7 +74,6 @@ const projectDir = join(process.cwd(), "_projects");
 export async function getStaticProps(context: any) {
   const { params } = context;
   const project = fs.readFileSync(join(projectDir, params.id + ".md"), "utf8");
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
   return {
     props: { project },
   };
