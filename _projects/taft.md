@@ -1,7 +1,7 @@
 ---
 title: The Trauma Audit Filters Trial
 subtitle: An Interrupted Time Series Trial on the Effect of Implementing Trauma Audit Filters on Outcomes of Patients Admitted with Trauma in Urban India
-pageName: TTRIS
+pageName: TAFT
 aim: "To compare and validate prediction models for emergency department trauma triage"
 centres:
   - name: SSKM
