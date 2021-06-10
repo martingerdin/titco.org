@@ -29,7 +29,7 @@ export default function Publication({ authors, title, url, journal, year, month,
   }
   return (
     <>
-	<div className="card" style={{maxWidth: "400px"}}>
+	<article className="card" style={{maxWidth: "400px"}}>
 	    <header className="card-header">
 		<div className="card-header-title">
 		    <div className="tags">
@@ -91,7 +91,7 @@ export default function Publication({ authors, title, url, journal, year, month,
 
 		}
 	    </footer>
-        </div>
+	</article>
     </>
   )  
 }
