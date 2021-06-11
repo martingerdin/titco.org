@@ -4,27 +4,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
-
-interface projectLevelProps {
-  levelItems: { [key: string]: string | number }[];
-}
-
-function ProjectLevel({ levelItems }: projectLevelProps) {
-  return (
-    <nav className="level">
-      {levelItems.map((item, key) => {
-        return (
-          <div className="level-item has-text-centered" key={key}>
-            <div>
-              <p className="heading">{Object.keys(item)}</p>
-              <p className="title">{Object.values(item)}</p>
-            </div>
-          </div>
-        );
-      })}
-    </nav>
-  );
-}
+import { ProjectLevel } from "../../components/ProjectLevel";
 
 export default function ProjectTemplate({ project }: any) {
   console.log(project);

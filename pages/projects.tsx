@@ -4,6 +4,7 @@ import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
+import { ProjectLevel } from "../components/ProjectLevel";
 
 interface cardTagsProps {
   tags: tag[];
@@ -22,8 +23,8 @@ function CardTags({ tags }: cardTagsProps) {
         return (
           <div className="control" key={key}>
             <div className="tags has-addons">
-              <span className="tag is-dark">{heading}</span>
-              {value !== "" && <span className="tag is-info">{value}</span>}
+              <span className="tag is-primary">{heading}</span>
+              {value !== "" && <span className="tag is-light">{value}</span>}
             </div>
           </div>
         );
@@ -43,32 +44,48 @@ export default function ProjectsPage({
 }: projectsPageProps) {
   return (
     <Layout title="Projects">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        {projectsData.map((project: any, key: number) => {
-          const projectMatter = matter(project);
-          const { title, subtitle, tags } = projectMatter.data;
-          const projectPage = projectFiles[key].replace(".md", "");
-          return (
-            <div className="block mx-4" key={key}>
-              <article className="card" style={{ maxWidth: "400px" }}>
-                <div className="card-content">
-                  {typeof tags !== "undefined" && <CardTags tags={tags} />}
-                  <p className="title is-4">{title}</p>
-                  <p className="subtitle is-6">{subtitle}</p>
-                  <Link href={`/projects/${projectPage}`}>
-                    <a className="button">Read More</a>
-                  </Link>
-                </div>
-              </article>
-            </div>
-          );
-        })}
-      </div>
+	<div
+          style={{
+	    display: "flex", flexWrap: "wrap", justifyContent: "center"
+          }}
+	>
+            {projectsData.map((project: any, key: number) => {
+              const projectMatter = matter(project);
+              const { title, subtitle, aim, tags, centres, cities, targetSampleSize } =
+		projectMatter.data;
+              const projectPage = projectFiles[key].replace(".md", "");
+              return (
+		<div className="block mx-4" key={key}>
+		    <article className="card" style={{ maxWidth: "600px", minWidth: "300px" }}>
+			<div className="card-content">
+			    <div className="content">
+				{typeof tags !== "undefined" && <CardTags tags={tags} />}
+			    </div>
+			    <p className="title is-4">{title}</p>
+			    <p className="subtitle is-6">{subtitle}</p>
+			    <hr />
+			    <ProjectLevel
+			      isSmall={true}
+			      levelItems={[
+				{ Centres: Object.keys(centres).length },
+				{ Cities: cities },
+				{ "Target Sample Size": targetSampleSize },
+			      ]}
+			    />
+			    <hr />
+			    <div className="content">
+			    <p className="title is-5">Aim</p>
+			    <p>{aim}</p>
+			    </div>
+			    <Link href={`/projects/${projectPage}`}>
+				<a className="button">Read More</a>
+			    </Link>
+			</div>
+		    </article>
+		</div>
+              );
+            })}
+	</div>
     </Layout>
   );
 }
