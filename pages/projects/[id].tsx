@@ -9,8 +9,17 @@ import { ProjectLevel } from "../../components/ProjectLevel";
 export default function ProjectTemplate({ project }: any) {
   console.log(project);
   const { data, content } = matter(project);
-  const { title, pageName, subtitle, aim, centres, cities, targetSampleSize } =
+  const { title, pageName, subtitle, aim, centres, cities, targetSampleSize, sampleSize } =
     data;
+  let sampleSizeKey;
+  let sampleSizeValue;
+  if (typeof targetSampleSize !== "undefined") {
+    sampleSizeKey = "Target Sample Size";
+    sampleSizeValue = targetSampleSize;
+  } else if (typeof sampleSize !== "undefined") {
+    sampleSizeKey = "Sample Size";
+    sampleSizeValue = sampleSize;
+  }
   return (
     <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
 	<section className="section">
@@ -18,7 +27,7 @@ export default function ProjectTemplate({ project }: any) {
               levelItems={[
 		{ Centres: Object.keys(centres).length },
 		{ Cities: cities },
-		{ "Target Sample Size": targetSampleSize },
+		{ [sampleSizeKey]: sampleSizeValue },
               ]}
 	    />
 	</section>
