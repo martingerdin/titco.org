@@ -9,8 +9,16 @@ import { ProjectLevel } from "../../components/ProjectLevel";
 export default function ProjectTemplate({ project }: any) {
   console.log(project);
   const { data, content } = matter(project);
-  const { title, pageName, subtitle, aim, centres, cities, targetSampleSize, sampleSize } =
-    data;
+  const {
+    title,
+    pageName,
+    subtitle,
+    aim,
+    centres,
+    cities,
+    targetSampleSize,
+    sampleSize,
+  } = data;
   let sampleSizeKey;
   let sampleSizeValue;
   if (typeof targetSampleSize !== "undefined") {
@@ -22,38 +30,51 @@ export default function ProjectTemplate({ project }: any) {
   }
   return (
     <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
-	<section className="section">
-	    <ProjectLevel
-              levelItems={[
-		{ Centres: Object.keys(centres).length },
-		{ Cities: cities },
-		{ [sampleSizeKey]: sampleSizeValue },
-              ]}
-	    />
-	</section>
-	<section className="section">
-	    <div
-	      className="container"
-		style={{
-		  maxWidth: "1000px"
-		}}
-	    >
-		<figure className="image is-16by9">
-		    <Map data={centres}/>
-		</figure>
-	    </div>
-	</section>
-	<section className="section">
-	    <ReactMarkdown
-	      components={
-	      {
-		h1({children}) {
-		  return <h1 className="title">{children}</h1>
-		}
-	      }
-	      }
-	    >{content}</ReactMarkdown>
-	</section>
+      <div className="block">
+        <ProjectLevel
+          levelItems={[
+            { Centres: Object.keys(centres).length },
+            { Cities: cities },
+            { [sampleSizeKey]: sampleSizeValue },
+          ]}
+        />
+      </div>
+      <div className="block">
+        <div
+          className="container"
+          style={{
+            maxWidth: "1000px",
+          }}
+        >
+          <figure className="image is-16by9">
+            <Map data={centres} />
+          </figure>
+        </div>
+      </div>
+      <section className="section">
+        <div
+          className="container"
+          style={{
+            maxWidth: "1000px",
+          }}
+        >
+          <ReactMarkdown
+            components={{
+              h1({ children }) {
+                return <h2 className="title is-4">{children}</h2>;
+              },
+              h2({ children }) {
+                return <h3 className="title is-5">{children}</h3>;
+              },
+              p({ children }) {
+                return <p className="block">{children}</p>;
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
+        </div>
+      </section>
     </Layout>
   );
 }

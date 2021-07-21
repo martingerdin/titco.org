@@ -8,7 +8,7 @@ interface breadcrumbProps {
 
 export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProps) {
   return (
-    <section className="section">
+    <div className="section" style={{paddingBottom: "1.5rem"}}>
 	<nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 	    <ul>
 		<li><Link href="/"><a>Home</a></Link></li>
@@ -41,6 +41,6 @@ export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProp
 
 	    </ul>
 	</nav>
-    </section>
+    </div>
   )
 }
