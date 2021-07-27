@@ -74,9 +74,17 @@ export default function ProjectTemplate({ project }: any) {
             maxWidth: "1000px",
           }}
         >
-          <figure className="image is-16by9">
-            <Map data={centres} />
-          </figure>
+          <div className="columns">
+            <div className="column is-4">
+              <h3 className="title is-4">Aim</h3>
+              <p>{aim}</p>
+            </div>
+            <div className="column">
+              <figure className="image is-16by9">
+                <Map data={centres} />
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
       <section className="section">
@@ -89,10 +97,10 @@ export default function ProjectTemplate({ project }: any) {
           <ReactMarkdown
             components={{
               h1({ children }) {
-                return <h2 className="title is-4">{children}</h2>;
+                return <h3 className="title is-4">{children}</h3>;
               },
               h2({ children }) {
-                return <h3 className="title is-5">{children}</h3>;
+                return <h4 className="title is-5">{children}</h4>;
               },
               p({ children }) {
                 return <p className="block">{children}</p>;

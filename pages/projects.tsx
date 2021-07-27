@@ -72,7 +72,7 @@ export default function ProjectsPage({
                     <hr />
                     <ProjectLevel
                       isSmall={true}
-                      levelItems={[
+                      items={[
                         { Centres: Object.keys(centres).length },
                         { Cities: cities },
                         { [sampleSizeKey]: sampleSizeValue },
