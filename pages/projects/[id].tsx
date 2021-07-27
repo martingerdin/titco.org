@@ -59,7 +59,7 @@ export default function ProjectTemplate({ project }: any) {
           }}
         >
           <ProjectLevel
-            levelItems={[
+            items={[
               { Centres: Object.keys(centres).length },
               { Cities: cities },
               { [sampleSizeKey]: sampleSizeValue },
