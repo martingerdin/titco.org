@@ -30,16 +30,23 @@ export default function ProjectTemplate({ project }: any) {
   }
   return (
     <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
-      <div className="block">
-        <ProjectLevel
-          levelItems={[
-            { Centres: Object.keys(centres).length },
-            { Cities: cities },
-            { [sampleSizeKey]: sampleSizeValue },
-          ]}
-        />
-      </div>
-      <div className="block">
+      <section className="section">
+        <div
+          className="container"
+          style={{
+            maxWidth: "1000px",
+          }}
+        >
+          <ProjectLevel
+            levelItems={[
+              { Centres: Object.keys(centres).length },
+              { Cities: cities },
+              { [sampleSizeKey]: sampleSizeValue },
+            ]}
+          />
+        </div>
+      </section>
+      <section className="section">
         <div
           className="container"
           style={{
@@ -50,7 +57,7 @@ export default function ProjectTemplate({ project }: any) {
             <Map data={centres} />
           </figure>
         </div>
-      </div>
+      </section>
       <section className="section">
         <div
           className="container"
