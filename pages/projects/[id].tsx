@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 import { ProjectLevel } from "../../components/ProjectLevel";
+import { TagList } from "../../components/TagList";
 
 export default function ProjectTemplate({ project }: any) {
   console.log(project);
@@ -14,6 +15,9 @@ export default function ProjectTemplate({ project }: any) {
     pageName,
     subtitle,
     aim,
+    status,
+    start,
+    end,
     centres,
     cities,
     targetSampleSize,
@@ -28,8 +32,25 @@ export default function ProjectTemplate({ project }: any) {
     sampleSizeKey = "Sample Size";
     sampleSizeValue = sampleSize;
   }
+  const tags = [
+    { heading: "Status", value: status },
+    { heading: "Start", value: start },
+  ];
+  if (typeof end !== "undefined") tags.push({ heading: "End", value: end });
   return (
-    <Layout title={title} subtitle={subtitle} currentPageName={pageName}>
+    <Layout currentPageName={pageName}>
+      <section className="section">
+        <div
+          className="container"
+          style={{
+            maxWidth: "1000px",
+          }}
+        >
+          <TagList tags={tags} />
+          <h1 className="title">{title}</h1>
+          <h2 className="subtitle">{subtitle}</h2>
+        </div>
+      </section>
       <section className="section">
         <div
           className="container"

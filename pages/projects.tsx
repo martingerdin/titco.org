@@ -1,37 +1,10 @@
 import Link from "next/link";
-import path from "path";
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { ProjectLevel } from "../components/ProjectLevel";
-
-interface cardTagsProps {
-  tags: tag[];
-}
-
-interface tag {
-  heading: string | number;
-  value: string | number;
-}
-
-function CardTags({ tags }: cardTagsProps) {
-  return (
-    <div className="field is-grouped is-grouped-multiline">
-      {tags.map((tag: tag, key: number) => {
-        const { heading, value } = tag;
-        return (
-          <div className="control" key={key}>
-            <div className="tags has-addons">
-              <span className="tag is-primary">{heading}</span>
-              {value !== "" && <span className="tag is-light">{value}</span>}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
+import { TagList } from "../components/TagList";
 
 interface projectsPageProps {
   projectFiles: string[];
@@ -92,7 +65,7 @@ export default function ProjectsPage({
                 >
                   <div className="card-content">
                     <div className="content">
-                      {typeof tags !== "undefined" && <CardTags tags={tags} />}
+                      {typeof tags !== "undefined" && <TagList tags={tags} />}
                     </div>
                     <p className="title is-4">{title}</p>
                     <p className="subtitle is-6">{subtitle}</p>

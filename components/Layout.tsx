@@ -15,7 +15,7 @@ interface layoutProps {
 export default function Layout(
   {
     children,
-    title = "Title",
+    title = "",
     subtitle = "",
     currentPageName = null
   }: layoutProps) {
@@ -32,7 +32,7 @@ export default function Layout(
 	    <Breadcrumb pathNames={pathNames} currentPageName={currentPageName} />
 	    <section className="section">
 		<div className="container has-text-centered">
-		    <h1 className="title">{title}</h1>
+		    {title !== "" && <h1 className="title">{title}</h1>}
 		    {subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
 		</div>
 	    </section>
