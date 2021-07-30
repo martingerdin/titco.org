@@ -74,17 +74,9 @@ export default function ProjectTemplate({ project }: any) {
             maxWidth: "1000px",
           }}
         >
-          <div className="columns">
-            <div className="column is-4">
-              <h3 className="title is-4">Aim</h3>
-              <p>{aim}</p>
-            </div>
-            <div className="column">
-              <figure className="image is-16by9">
-                <Map data={centres} />
-              </figure>
-            </div>
-          </div>
+          <figure className="image is-3by1">
+            <Map data={centres} />
+          </figure>
         </div>
       </section>
       <section className="section">
