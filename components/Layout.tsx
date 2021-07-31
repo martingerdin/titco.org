@@ -16,7 +16,7 @@ export default function Layout({
   children,
   title = "",
   subtitle = "",
-  currentPageName = null,
+  currentPageName = null
 }: layoutProps) {
   useEffect(() => {
     document.querySelector("body").classList.add("has-navbar-fixed-top");
