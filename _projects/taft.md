@@ -4,7 +4,7 @@ subtitle: An Interrupted Time Series Trial on the Effect of Implementing Trauma 
 status: Ongoing
 start: 2017
 pageName: TAFT
-aim: "To compare and validate prediction models for emergency department trauma triage"
+aim: To assess if institutional implementation of audit filters reduce mortality in adult trauma patients
 centres:
   - name: SSKM
     latitude: 22.539791106134892
@@ -20,6 +20,9 @@ centres:
     longitude: 77.62001626696319
 cities: 4
 targetSampleSize: "8,400"
+links:
+  - name: ClinicalTrials.gov
+    href: https://clinicaltrials.gov/ct2/show/NCT03235388
 ---
 
 # Summary

@@ -12,15 +12,10 @@ import { TagList } from "../../components/TagList";
 
 export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
-  const links = [
-    { name: "ClinicalTrials.gov", href: "https://www.clinicaltrials.gov" },
-    { name: "GitHub", href: "https://github.com" },
-  ];
   const {
     title,
     pageName,
     subtitle,
-    aim,
     status,
     start,
     end,
@@ -28,6 +23,7 @@ export default function ProjectTemplate({ project }: any) {
     cities,
     targetSampleSize,
     sampleSize,
+    links,
   } = data;
 
   let sampleSizeKey;
@@ -146,20 +142,20 @@ export default function ProjectTemplate({ project }: any) {
               >
                 <h3 className="title is-4">More</h3>
                 <div className="buttons">
-                  {links.map((link, key) => {
-                    console.log(link);
-                    console.log(link.name);
-                    return (
-                      <Link href={link.href} passHref>
-                        <a className="button is-link" key={key}>
-                          <span>{link.name}</span>
-                          <span className="icon is-small">
-                            <Icon path={mdiOpenInNew} />
-                          </span>
-                        </a>
-                      </Link>
-                    );
-                  })}
+                  {links.map(
+                    (link: { name: string; href: string }, key: number) => {
+                      return (
+                        <Link href={link.href} passHref key={key}>
+                          <a className="button is-link">
+                            <span>{link.name}</span>
+                            <span className="icon is-small">
+                              <Icon path={mdiOpenInNew} />
+                            </span>
+                          </a>
+                        </Link>
+                      );
+                    }
+                  )}
                 </div>
               </div>
             </section>
