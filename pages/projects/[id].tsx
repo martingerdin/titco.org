@@ -14,6 +14,7 @@ export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
   const links = [
     { name: "ClinicalTrials.gov", href: "https://www.clinicaltrials.gov" },
+    { name: "GitHub", href: "https://github.com" },
   ];
   const {
     title,
@@ -144,7 +145,22 @@ export default function ProjectTemplate({ project }: any) {
                 }}
               >
                 <h3 className="title is-4">More</h3>
-                <div className="buttons">{console.log(links)}</div>
+                <div className="buttons">
+                  {links.map((link, key) => {
+                    console.log(link);
+                    console.log(link.name);
+                    return (
+                      <Link href={link.href} passHref>
+                        <a className="button is-link" key={key}>
+                          <span>{link.name}</span>
+                          <span className="icon is-small">
+                            <Icon path={mdiOpenInNew} />
+                          </span>
+                        </a>
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             </section>
           )}
