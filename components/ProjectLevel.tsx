@@ -7,7 +7,6 @@ export function ProjectLevel({ items, isSmall = false }: projectLevelProps) {
   return (
     <nav className="level">
       {items.map((item, key) => {
-        console.log(key);
         return (
           <div className="level-item has-text-centered" key={key}>
             <div>
