@@ -4,7 +4,7 @@ subtitle: The Original Cohort of Trauma Patients Admitted to Public University H
 status: Completed
 start: 2013
 end: 2015
-data: https://github.com/titco/titco-I
+dataset: https://github.com/titco/titco-I
 pageName: TITCO
 aim: To describe trauma patients admitted to public university hospitals in urban India
 centres:

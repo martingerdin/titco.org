@@ -19,6 +19,7 @@ export default function ProjectTemplate({ project }: any) {
     status,
     start,
     end,
+    dataset,
     centres,
     cities,
     targetSampleSize,
@@ -40,6 +41,16 @@ export default function ProjectTemplate({ project }: any) {
     { heading: "Start", value: start },
   ];
   if (typeof end !== "undefined") tags.push({ heading: "End", value: end });
+  let dataTag = {
+    heading: "Data",
+    value: "Not yet available",
+    color: "danger",
+  };
+  if (typeof dataset !== "undefined") {
+    dataTag.value = "Available";
+    dataTag.color = "success";
+  }
+  tags.push(dataTag);
   return (
     <Layout currentPageName={pageName}>
       <div className="columns">
