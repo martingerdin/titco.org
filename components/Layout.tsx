@@ -16,7 +16,7 @@ export default function Layout({
   children,
   title = "",
   subtitle = "",
-  currentPageName = null
+  currentPageName = null,
 }: layoutProps) {
   useEffect(() => {
     document.querySelector("body").classList.add("has-navbar-fixed-top");
@@ -33,15 +33,14 @@ export default function Layout({
       <Navbar activePage={capitalise(pathNames[1])} />
       <div style={{ flexGrow: 1 }}>
         <Breadcrumb pathNames={pathNames} currentPageName={currentPageName} />
-        {title !== "" ||
-          (subtitle !== "" && (
-            <section className="section">
-              <div className="container has-text-centered">
-                {title !== "" && <h1 className="title">{title}</h1>}
-                {subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
-              </div>
-            </section>
-          ))}
+        {(title !== "" || subtitle !== "") && (
+          <section className="section">
+            <div className="container has-text-centered">
+              {title !== "" && <h1 className="title">{title}</h1>}
+              {subtitle !== "" && <h2 className="subtitle">{subtitle}</h2>}
+            </div>
+          </section>
+        )}
         {children}
       </div>
       <Footer />
