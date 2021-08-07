@@ -19,7 +19,7 @@ centres:
     latitude: 12.929517952436166 
     longitude: 77.62001626696319
 cities: 4
-targetSampleSize: "8,400"
+sampleSize: "8,400"
 links:
   - name: ClinicalTrials.gov
     href: https://clinicaltrials.gov/ct2/show/NCT03235388

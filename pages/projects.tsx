@@ -4,16 +4,40 @@ import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { ProjectLevel } from "../components/ProjectLevel";
+import { ProjectSummary } from "../components/ProjectSummary";
 import { TagList } from "../components/TagList";
 
 interface projectsPageProps {
-  projectFiles: string[];
-  projectsData: Project[];
+  projectsData: ProjectData[];
 }
 
-interface Project {
+interface ProjectData {
   file: string;
-  content: any;
+  content: Project;
+}
+
+export interface Project {
+  title: string;
+  subtitle: string;
+  aim: string;
+  status: string;
+  start: string;
+  end?: string;
+  centres?: Centre[];
+  cities?: string;
+  sampleSize?: string;
+  links?: Link[];
+}
+
+export interface Centre {
+  name: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface Link {
+  name: string;
+  href: string;
 }
 
 export default function ProjectsPage({ projectsData }: projectsPageProps) {
@@ -28,64 +52,24 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
           }}
         >
           {projectsData
-            .map((project: Project) => {
+            .map((project: ProjectData) => {
               return {
                 file: project.file,
                 content: matter(project.content).data,
               };
             })
             .sort((a, b) => b.content.start - a.content.start)
-            .map((project: Project, key: number) => {
-              const {
-                title,
-                subtitle,
-                aim,
-                status,
-                start,
-                end,
-                centres,
-                cities,
-                sampleSize,
-                targetSampleSize,
-              } = project.content;
-              let sampleSizeKey;
-              let sampleSizeValue;
-              if (typeof targetSampleSize !== "undefined") {
-                sampleSizeKey = "Target Sample Size";
-                sampleSizeValue = targetSampleSize;
-              } else if (typeof sampleSize !== "undefined") {
-                sampleSizeKey = "Sample Size";
-                sampleSizeValue = sampleSize;
-              }
-              const tags = [
-                { heading: "Status", value: status },
-                { heading: "Start", value: start },
-              ];
-              if (typeof end !== "undefined")
-                tags.push({ heading: "End", value: end });
+            .map((project: ProjectData, key: number) => {
+              const { aim } = project.content;
               const projectPage = project.file.replace(".md", "");
               return (
-                <div className="block mx-4" key={key}>
+                <div className="block mx-5 my-5" key={key}>
                   <article
                     className="card"
                     style={{ maxWidth: "600px", minWidth: "300px" }}
                   >
                     <div className="card-content">
-                      <div className="content">
-                        {typeof tags !== "undefined" && <TagList tags={tags} />}
-                      </div>
-                      <p className="title is-4">{title}</p>
-                      <p className="subtitle is-6">{subtitle}</p>
-                      <hr />
-                      <ProjectLevel
-                        isSmall={true}
-                        items={[
-                          { Centres: Object.keys(centres).length },
-                          { Cities: cities },
-                          { [sampleSizeKey]: sampleSizeValue },
-                        ]}
-                      />
-                      <hr />
+                      <ProjectSummary card {...project.content} />
                       <div className="content">
                         <p className="title is-5">Aim</p>
                         <p>{aim}</p>

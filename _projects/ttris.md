@@ -16,7 +16,7 @@ centres:
     latitude: 28.638291630960076 
     longitude: 77.23877270880529
 cities: 3
-targetSampleSize: "16,400"
+sampleSize: "16,400"
 links:
   - name: GitHub
     href: https://github.com/titco/trauma-triage-study
