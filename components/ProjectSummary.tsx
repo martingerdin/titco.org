@@ -44,8 +44,7 @@ export function ProjectSummary({
       </div>
       <p className={`title ${card && "is-4"}`}>{title}</p>
       <p className={`subtitle ${card && "is-6"}`}>{subtitle}</p>
-      {card && <hr />}
-
+      <hr />
       <ProjectLevel
         isSmall={card}
         items={[
@@ -54,8 +53,7 @@ export function ProjectSummary({
           { [sampleSizeKey]: sampleSize },
         ]}
       />
-
-      {card && <hr />}
+      <hr />
     </>
   );
 }

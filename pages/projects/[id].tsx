@@ -4,54 +4,15 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import Icon from "@mdi/react";
-import { mdiOpenInNew } from "@mdi/js";
+import { mdiOpenInNew, mdiSend } from "@mdi/js";
 import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
-import { ProjectLevel } from "../../components/ProjectLevel";
-import { TagList } from "../../components/TagList";
 import { ProjectSummary } from "../../components/ProjectSummary";
 
 export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
-  const {
-    title,
-    pageName,
-    subtitle,
-    status,
-    start,
-    end,
-    dataset,
-    centres,
-    cities,
-    targetSampleSize,
-    sampleSize,
-    links,
-  } = data;
+  const { pageName, centres, links } = data;
 
-  let sampleSizeKey;
-  let sampleSizeValue;
-  if (typeof targetSampleSize !== "undefined") {
-    sampleSizeKey = "Target Sample Size";
-    sampleSizeValue = targetSampleSize;
-  } else if (typeof sampleSize !== "undefined") {
-    sampleSizeKey = "Sample Size";
-    sampleSizeValue = sampleSize;
-  }
-  const tags = [
-    { heading: "Status", value: status },
-    { heading: "Start", value: start },
-  ];
-  if (typeof end !== "undefined") tags.push({ heading: "End", value: end });
-  let dataTag = {
-    heading: "Data",
-    value: "Not yet available",
-    color: "danger",
-  };
-  if (typeof dataset !== "undefined") {
-    dataTag.value = "Available";
-    dataTag.color = "success";
-  }
-  tags.push(dataTag);
   return (
     <Layout currentPageName={pageName}>
       <div className="columns">
@@ -87,34 +48,7 @@ export default function ProjectTemplate({ project }: any) {
                 maxWidth: "1000px",
               }}
             >
-              <TagList tags={tags} />
-              <h1 className="title">{title}</h1>
-              <h2 className="subtitle">{subtitle}</h2>
-            </div>
-          </section>
-          <section className="section">
-            <div
-              className="container"
-              style={{
-                maxWidth: "1000px",
-              }}
-            >
-              <ProjectLevel
-                items={[
-                  { Centres: Object.keys(centres).length },
-                  { Cities: cities },
-                  { [sampleSizeKey]: sampleSizeValue },
-                ]}
-              />
-            </div>
-          </section>
-          <section className="section">
-            <div
-              className="container"
-              style={{
-                maxWidth: "1000px",
-              }}
-            >
+              <ProjectSummary {...data} />
               <figure id="map" className="image is-3by1">
                 <Map data={centres} />
               </figure>
@@ -160,7 +94,7 @@ export default function ProjectTemplate({ project }: any) {
                         <Link href={link.href} passHref key={key}>
                           <a className="button is-link">
                             <span>{link.name}</span>
-                            <span className="icon is-small">
+                            <span className="icon is-small pl-2">
                               <Icon path={mdiOpenInNew} />
                             </span>
                           </a>
@@ -168,6 +102,17 @@ export default function ProjectTemplate({ project }: any) {
                       );
                     }
                   )}
+                  <Link
+                    href={`mailto:info@titco.org?subject="Regarding ${pageName}"`}
+                    passHref
+                  >
+                    <a className="button is-info">
+                      <span>Email Us About This Project</span>
+                      <span className="icon is-small pl-2">
+                        <Icon path={mdiSend} />
+                      </span>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </section>
