@@ -3,9 +3,7 @@ import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
-import { ProjectLevel } from "../components/ProjectLevel";
 import { ProjectSummary } from "../components/ProjectSummary";
-import { TagList } from "../components/TagList";
 
 interface projectsPageProps {
   projectsData: ProjectData[];
