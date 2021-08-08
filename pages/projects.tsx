@@ -21,6 +21,7 @@ export interface Project {
   status: string;
   start: string;
   end?: string;
+  dataset?: string;
   centres?: Centre[];
   cities?: string;
   sampleSize?: string;

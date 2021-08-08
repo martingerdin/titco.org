@@ -14,6 +14,7 @@ export function ProjectSummary({
   status,
   start,
   end,
+  dataset,
   centres,
   cities,
   sampleSize,
@@ -26,6 +27,16 @@ export function ProjectSummary({
     { heading: "Start", value: start },
   ];
   if (typeof end !== "undefined") tags.push({ heading: "End", value: end });
+  let dataTag = {
+    heading: "Data",
+    value: "Not yet available",
+    color: "danger is-light",
+  };
+  if (typeof dataset !== "undefined") {
+    dataTag.value = "Available";
+    dataTag.color = "success is-light";
+  }
+  tags.push(dataTag);
   return (
     <>
       <div className="content">

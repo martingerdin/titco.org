@@ -9,6 +9,7 @@ import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 import { ProjectLevel } from "../../components/ProjectLevel";
 import { TagList } from "../../components/TagList";
+import { ProjectSummary } from "../../components/ProjectSummary";
 
 export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
