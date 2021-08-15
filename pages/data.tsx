@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
