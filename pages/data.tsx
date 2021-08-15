@@ -15,7 +15,6 @@ export default function DataPage({ projectsData }: projectsPageProps) {
       return typeof project.dataset !== "undefined";
     })
     .sort((a, b) => b.start - a.start);
-  console.log(projectsWithData);
   return (
     <Layout title="Data" subtitle="Our Open Datasets">
       <section className="section">
