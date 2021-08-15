@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { ProjectSummary } from "../components/ProjectSummary";
 
-interface projectsPageProps {
+export interface projectsPageProps {
   projectsData: ProjectData[];
 }
 
