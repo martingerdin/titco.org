@@ -4,6 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { ProjectSummary } from "../components/ProjectSummary";
+import { LinkButton } from "../components/LinkButton";
 
 export interface projectsPageProps {
   projectsData: ProjectData[];
@@ -59,7 +60,7 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
             })
             .sort((a, b) => b.content.start - a.content.start)
             .map((project: ProjectData, key: number) => {
-              const { aim } = project.content;
+              const { aim, dataset } = project.content;
               const projectPage = project.file.replace(".md", "");
               return (
                 <div className="block mx-5 my-5" key={key}>
@@ -73,9 +74,14 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
                         <p className="title is-5">Aim</p>
                         <p>{aim}</p>
                       </div>
-                      <Link href={`/projects/${projectPage}`}>
-                        <a className="button">Read More</a>
-                      </Link>
+                      <div className="buttons">
+                        <Link href={`/projects/${projectPage}`}>
+                          <a className="button">Read More</a>
+                        </Link>
+                        {typeof dataset !== "undefined" && (
+                          <LinkButton href={dataset} text="Get Data" />
+                        )}
+                      </div>
                     </div>
                   </article>
                 </div>

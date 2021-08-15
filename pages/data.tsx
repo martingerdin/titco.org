@@ -2,10 +2,9 @@ import Link from "next/link";
 import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import Icon from "@mdi/react";
-import { mdiOpenInNew } from "@mdi/js";
 import Layout from "../components/Layout";
 import { TagList } from "../components/TagList";
+import { LinkButton } from "../components/LinkButton";
 import { projectsPageProps } from "./projects";
 
 export default function DataPage({ projectsData }: projectsPageProps) {
@@ -49,14 +48,7 @@ export default function DataPage({ projectsData }: projectsPageProps) {
                     <h4 className="subtitle is-6">{subtitle}</h4>
                     <p className="heading">Observations</p>
                     <p className="title">{sampleSize}</p>
-                    <Link href={dataset}>
-                      <a className="button is-link">
-                        <span>Get Data</span>
-                        <span className="icon is-small pl-2">
-                          <Icon path={mdiOpenInNew} />
-                        </span>
-                      </a>
-                    </Link>
+                    <LinkButton href={dataset} text="Get Data" />
                   </div>
                 </article>
               </div>

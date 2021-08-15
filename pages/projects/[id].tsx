@@ -4,14 +4,15 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import Icon from "@mdi/react";
-import { mdiOpenInNew, mdiSend } from "@mdi/js";
+import { mdiSend } from "@mdi/js";
 import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 import { ProjectSummary } from "../../components/ProjectSummary";
+import { LinkButton } from "../../components/LinkButton";
 
 export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
-  const { pageName, centres, links } = data;
+  const { pageName, centres, links, dataset } = data;
 
   return (
     <Layout currentPageName={pageName}>
@@ -91,16 +92,16 @@ export default function ProjectTemplate({ project }: any) {
                   {links.map(
                     (link: { name: string; href: string }, key: number) => {
                       return (
-                        <Link href={link.href} passHref key={key}>
-                          <a className="button is-link">
-                            <span>{link.name}</span>
-                            <span className="icon is-small pl-2">
-                              <Icon path={mdiOpenInNew} />
-                            </span>
-                          </a>
-                        </Link>
+                        <LinkButton
+                          href={link.href}
+                          text={link.name}
+                          key={key}
+                        />
                       );
                     }
+                  )}
+                  {typeof dataset !== "undefined" && (
+                    <LinkButton href={dataset} text="Get Data" />
                   )}
                   <Link
                     href={`mailto:info@titco.org?subject="Regarding ${pageName}"`}
