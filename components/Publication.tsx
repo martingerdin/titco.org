@@ -55,9 +55,6 @@ export default function Publication({
           <p className="title is-4 is-spaced">{title}</p>
           <p className="subtitle is-6">{authors}</p>
           <div className="buttons">
-            {typeof url !== "undefined" && (
-              <LinkButton text="Fulltext" href={url} />
-            )}
             <button
               className="button dropdown is-hoverable dropdown-trigger"
               onMouseOver={() => setCitationButtonText("Copy Citation")}
@@ -112,6 +109,9 @@ export default function Publication({
                 </div>
               </div>
             </button>
+            {typeof url !== "undefined" && (
+              <LinkButton text="Fulltext" href={url} />
+            )}
           </div>
         </div>
       </article>
