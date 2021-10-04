@@ -1,16 +1,36 @@
 import { join } from "path";
 import fs from "fs";
-import publications from "../components/publications.json";
 import Publication from "../components/Publication";
 import Layout from "../components/Layout";
 import { useState } from "react";
 
-export default function PublicationsPage() {
-  const sortedPublications = [...publications].sort((a, b) => {
-    return b.YEAR - a.YEAR;
+interface publicationInterface {
+  key: string;
+  doi: string;
+  url: string;
+  year: string;
+  month: string;
+  publisher: string;
+  volume: string;
+  number: string;
+  pages: string;
+  author: string;
+  title: string;
+  journal: string;
+}
+
+interface publicationsInterface {
+  publications: publicationInterface[];
+}
+
+export default function PublicationsPage({
+  publications,
+}: publicationsInterface) {
+  const sortedPublications = publications.sort((a, b) => {
+    return b.year - a.year;
   });
   const years = [
-    ...new Set(sortedPublications.map((publication) => publication.YEAR)),
+    ...new Set(sortedPublications.map((publication) => publication.year)),
   ];
   const [selectedYears, setSelectedYears] = useState(years);
   // Make sure that all publications are shown if the user deselects all years
@@ -18,7 +38,7 @@ export default function PublicationsPage() {
     setSelectedYears(years);
   }
   const selectedPublications = sortedPublications.filter((publication) =>
-    selectedYears.includes(publication.YEAR)
+    selectedYears.includes(publication.year)
   );
   return (
     <Layout
@@ -84,28 +104,28 @@ export default function PublicationsPage() {
             // Show only those publications published in years selected by the user
             selectedPublications.map((publication, key) => {
               const {
-                AUTHOR,
-                TITLE,
-                VOLUME,
-                NUMBER,
-                URL,
-                JOURNAL,
-                YEAR,
-                MONTH,
-                PAGES,
+                author,
+                title,
+                volume,
+                number,
+                url,
+                journal,
+                year,
+                month,
+                pages,
               } = publication;
               return (
                 <div className="mx-4 block" key={key}>
                   <Publication
-                    authors={AUTHOR.join(", ")}
-                    title={TITLE}
-                    url={URL}
-                    journal={JOURNAL}
-                    year={YEAR.toString()}
-                    month={MONTH}
-                    volume={VOLUME}
-                    issue={NUMBER}
-                    pages={PAGES}
+                    authors={author.replace(/\sand\s/g, ", ")}
+                    title={title}
+                    url={url}
+                    journal={journal}
+                    year={year}
+                    month={month}
+                    volume={volume}
+                    issue={number}
+                    pages={pages}
                   />
                 </div>
               );
@@ -122,7 +142,7 @@ export async function getStaticProps() {
     join(process.cwd(), "_publications/publications.bib"),
     "utf8"
   );
-  const publicationsData = publicationsFile
+  const publications = publicationsFile
     .split("@")
     .map((entry: string) => {
       return (
@@ -156,7 +176,6 @@ export async function getStaticProps() {
         jsonEntry = jsonEntry.substr(0, i);
       }
       const json = "{" + jsonEntry + "}";
-      console.log(json);
       let jsonParsed;
       try {
         jsonParsed = JSON.parse(json);
@@ -168,8 +187,7 @@ export async function getStaticProps() {
       }
       return jsonParsed;
     });
-  console.log(publicationsData);
   return {
-    props: { publicationsFile },
+    props: { publications },
   };
 }
