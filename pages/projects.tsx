@@ -68,8 +68,7 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
                     className="card"
                     style={{ maxWidth: "600px", minWidth: "300px" }}
                   >
-                    <div className="card-content">
-                      <ProjectSummary card {...project.content} />
+                    <ProjectSummary card {...project.content}>
                       <div className="content">
                         <p className="title is-5">Aim</p>
                         <p>{aim}</p>
@@ -82,7 +81,7 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
                           <LinkButton href={dataset} text="Get Data" />
                         )}
                       </div>
-                    </div>
+                    </ProjectSummary>
                   </article>
                 </div>
               );

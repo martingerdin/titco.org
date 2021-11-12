@@ -42,7 +42,7 @@ export default function Publication({
     <>
       <article className="card" style={{ maxWidth: "400px" }}>
         <header className="card-header">
-          <div className="card-header-title">
+          <div className="card-header-title" style={{ fontWeight: "normal" }}>
             <div className="tags">
               <span className="tag is-white">
                 {journal !== "" ? journal : ""}
