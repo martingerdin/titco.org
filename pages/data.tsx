@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { TagList } from "../components/TagList";
 import { LinkButton } from "../components/LinkButton";
+import { Card } from "../components/Card";
 import { projectsPageProps } from "./projects";
 
 export default function DataPage({ projectsData }: projectsPageProps) {
@@ -34,21 +35,11 @@ export default function DataPage({ projectsData }: projectsPageProps) {
             ];
             return (
               <div className="block mx-5 my-5" key={key}>
-                <article
-                  className="card"
-                  style={{ maxWidth: "600px", minWidth: "300px" }}
-                >
-                  <div className="card-content">
-                    <div className="content">
-                      <TagList tags={tags} />
-                    </div>
-                    <h3 className="title is-4">{title}</h3>
-                    <h4 className="subtitle is-6">{subtitle}</h4>
-                    <p className="heading">Observations</p>
-                    <p className="title">{sampleSize}</p>
-                    <LinkButton href={dataset} text="Get Data" />
-                  </div>
-                </article>
+                <Card tags={tags} title={title} subtitle={subtitle}>
+                  <p className="heading">Observations</p>
+                  <p className="title">{sampleSize}</p>
+                  <LinkButton href={dataset} text="Get Data" />
+                </Card>
               </div>
             );
           })}
