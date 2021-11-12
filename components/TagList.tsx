@@ -1,18 +1,18 @@
-interface tagListProps {
-  tags: tag[];
+export interface TagListInterface {
+  tags: TagInterface[];
 }
 
-interface tag {
+export interface TagInterface {
   heading: string | number;
   value: string | number;
   color?: "light";
 }
 
-export function TagList({ tags }: tagListProps) {
+export function TagList({ tags }: TagListInterface) {
   return (
     <div className="block">
       <div className="field is-grouped is-grouped-multiline">
-        {tags.map((tag: tag, key: number) => {
+        {tags.map((tag: TagInterface, key: number) => {
           const { heading, value, color } = tag;
           return (
             <div className="control" key={key}>
