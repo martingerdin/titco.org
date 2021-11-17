@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import Layout from "../components/Layout";
 import { ProjectSummary } from "../components/ProjectSummary";
 import { LinkButton } from "../components/LinkButton";
+import { Card } from "../components/Card";
 
 export interface projectsPageProps {
   projectsData: ProjectData[];
@@ -60,14 +61,11 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
             })
             .sort((a, b) => b.content.start - a.content.start)
             .map((project: ProjectData, key: number) => {
-              const { aim, dataset } = project.content;
+              const { title, subtitle, aim, dataset } = project.content;
               const projectPage = project.file.replace(".md", "");
               return (
                 <div className="block mx-5 my-5" key={key}>
-                  <article
-                    className="card"
-                    style={{ maxWidth: "600px", minWidth: "300px" }}
-                  >
+		    <Card>
                     <ProjectSummary card {...project.content}>
                       <div className="content">
                         <p className="title is-5">Aim</p>
@@ -82,7 +80,7 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
                         )}
                       </div>
                     </ProjectSummary>
-                  </article>
+                  </Card>
                 </div>
               );
             })}
