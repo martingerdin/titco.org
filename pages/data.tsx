@@ -2,7 +2,6 @@ import { join } from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import Layout from "../components/Layout";
-import { TagList } from "../components/TagList";
 import { LinkButton } from "../components/LinkButton";
 import { Card } from "../components/Card";
 import { projectsPageProps } from "./projects";
