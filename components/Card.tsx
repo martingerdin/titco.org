@@ -15,7 +15,7 @@ export function Card({
   children,
 }: CardInterface) {
   return (
-    <article className="card" style={{ maxWidth: "600px", minWidth: "300px" }}>
+    <article className="card" style={{ maxWidth: "500px", minWidth: "200px" }}>
       <div className="card-content">
         {tags !== "" && (
           <div className="content">
