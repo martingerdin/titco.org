@@ -26,7 +26,7 @@ interface publicationsInterface {
 export default function PublicationsPage({
   publications,
 }: publicationsInterface) {
-  const sortedPublications = publications.sort((a, b) => {
+  const sortedPublications = publications.sort((a: any, b: any) => {
     return b.year - a.year;
   });
   const years = [
