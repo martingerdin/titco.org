@@ -17,11 +17,11 @@ interface ProjectData {
 }
 
 export interface Project {
-  title: string;
-  subtitle: string;
-  aim: string;
-  status: string;
-  start: string;
+  title?: string;
+  subtitle?: string;
+  aim?: string;
+  status?: string;
+  start?: string;
   end?: string;
   dataset?: string;
   centres?: Centre[];

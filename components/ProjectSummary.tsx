@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { getProjectTags } from "../lib/getProjectTags";
 
 interface ProjectSummaryInterface extends Project {
-  children: ReactNode;
+  children?: ReactNode;
   card?: boolean;
 }
 
