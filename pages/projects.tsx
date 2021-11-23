@@ -8,7 +8,7 @@ import { LinkButton } from "../components/LinkButton";
 import { Card } from "../components/Card";
 
 export interface projectsPageProps {
-  projectsData: ProjectData[];
+  projectsData: ProjectData[] | any;
 }
 
 interface ProjectData {
@@ -53,14 +53,14 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
           }}
         >
           {projectsData
-            .map((project: ProjectData) => {
+            .map((project: any) => {
               return {
                 file: project.file,
                 content: matter(project.content).data,
               };
             })
-            .sort((a, b) => b.content.start - a.content.start)
-            .map((project: ProjectData, key: number) => {
+            .sort((a: any, b: any) => b.content.start - a.content.start)
+            .map((project: any, key: number) => {
               const { title, subtitle, aim, dataset } = project.content;
               const projectPage = project.file.replace(".md", "");
               return (

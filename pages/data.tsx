@@ -8,13 +8,13 @@ import { projectsPageProps } from "./projects";
 
 export default function DataPage({ projectsData }: projectsPageProps) {
   const projectsWithData = projectsData
-    .map((project) => {
+    .map((project: any) => {
       return matter(project.content).data;
     })
-    .filter((project) => {
+    .filter((project: any) => {
       return typeof project.dataset !== "undefined";
     })
-    .sort((a, b) => b.start - a.start);
+    .sort((a: any, b: any) => b.start - a.start);
   return (
     <Layout title="Data" subtitle="Our Open Datasets">
       <section className="section">
@@ -25,7 +25,7 @@ export default function DataPage({ projectsData }: projectsPageProps) {
             justifyContent: "center",
           }}
         >
-          {projectsWithData.map((project, key) => {
+          {projectsWithData.map((project: any, key: number) => {
             const { title, subtitle, start, end, dataset, sampleSize } =
               project;
             const tags = [
