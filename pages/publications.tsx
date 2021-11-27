@@ -2,7 +2,9 @@ import { join } from "path";
 import fs from "fs";
 import { useState } from "react";
 import Publication from "../components/Publication";
+import { Card } from "../components/Card";
 import Layout from "../components/Layout";
+import { parseBibTex } from "../lib/parseBibTex";
 
 interface publicationInterface {
   key: string;
@@ -17,6 +19,8 @@ interface publicationInterface {
   author: string;
   title: string;
   journal: string;
+  message: string;
+  error: boolean;
 }
 
 interface publicationsInterface {
@@ -113,20 +117,29 @@ export default function PublicationsPage({
                 year,
                 month,
                 pages,
+                message,
+                error,
               } = publication;
               return (
                 <div className="mx-4 block" key={key}>
-                  <Publication
-                    authors={author.replace(/\sand\s/g, ", ")}
-                    title={title}
-                    url={url}
-                    journal={journal}
-                    year={year}
-                    month={month}
-                    volume={volume}
-                    issue={number}
-                    pages={pages}
-                  />
+                  {error ? (
+                    <Card
+                      title="This publication can not be displayed"
+                      subtitle={"Error: " + message}
+                    />
+                  ) : (
+                    <Publication
+                      authors={author.replace(/\sand\s/g, ", ")}
+                      title={title}
+                      url={url}
+                      journal={journal}
+                      year={year}
+                      month={month}
+                      volume={volume}
+                      issue={number}
+                      pages={pages}
+                    />
+                  )}
                 </div>
               );
             })
@@ -144,49 +157,9 @@ export async function getStaticProps() {
   );
   const publications = publicationsFile
     .split("@")
-    .map((entry: string) => {
-      return (
-        entry
-          .split("\n")
-          .map((line) => {
-            return line
-              .replace(/^article\{([\w]*)\,/, "key = $1,")
-              .replace(/^\s*([a-z]*)\s=\s{?/, '"$1": "')
-              .replace(/\}?\,?\s*$/, '",')
-              .replace(/^"\,$/, "");
-          })
-          .join("\n")
-          // Replace strange letters
-          .replace(/{\\"a}/g, "&x00E4")
-          .replace(/{\\aa}/g, "&x00E5")
-          .replace(/{\\"o}/g, "&x00F6")
-          .replace(/{\\"A}/g, "&x00C4")
-          .replace(/{\\AA}/g, "&x00C5")
-          .replace(/{\\"O}/g, "&x00C6")
-          // Convert bibtex to something that can be parsed as json
-          .replace(/\{/g, "")
-          .replace(/\}/g, "")
-      );
-    })
     .filter((entry) => entry !== "")
-    .map((entry) => {
-      let jsonEntry = entry;
-      const i = entry.lastIndexOf(",");
-      if (i != -1) {
-        jsonEntry = jsonEntry.substr(0, i);
-      }
-      const json = "{" + jsonEntry + "}";
-      let jsonParsed;
-      try {
-        jsonParsed = JSON.parse(json);
-      } catch (error) {
-        jsonParsed = {
-          message: "The publication could not be parsed",
-          error: "",
-        };
-      }
-      return jsonParsed;
-    });
+    .map((entry) => parseBibTex(entry));
+  console.log(publications);
   return {
     props: { publications },
   };

@@ -5,7 +5,7 @@ export interface CardInterface {
   tags?: TagInterface[] | "";
   title?: string;
   subtitle?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export function Card({
