@@ -178,7 +178,6 @@ export async function getStaticProps() {
     .split("@")
     .filter((entry) => entry !== "")
     .map((entry) => parseBibTex(entry));
-  console.log(publications);
   return {
     props: { publications },
   };

@@ -11,21 +11,21 @@ export default function SocialLinks({ dropdown = "" }: socialLinksProps) {
     <>
 	<SocialLink
 	  href="mailto:info@titco.org"
-	  icon={mdiSend}
+	  icon="send"
 	  id="email"
 	  text="Send us an email"
 	  dropdown = {dropdown}
 	/>
 	<SocialLink
 	  href="https://github.com/titco"
-	  icon={mdiGithub}
+	  icon="github"
 	  id="github"
 	  text="Visit us on GitHub"
 	  dropdown = {dropdown}
 	/>
 	<SocialLink
 	  href="/"
-	  icon={mdiSlack}
+	  icon="slack" 
 	  id="slack"
 	  text="Join us on Slack"
 	  dropdown = {dropdown}
