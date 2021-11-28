@@ -1,5 +1,3 @@
-import Icon from "@mdi/react";
-import { mdiCheck, mdiGithub, mdiSlack, mdiBookOpen, mdiDatabase, mdiSend } from "@mdi/js";
 import SocialLink from "./SocialLink";
 
 interface socialLinksProps {

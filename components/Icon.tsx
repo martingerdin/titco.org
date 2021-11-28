@@ -3,7 +3,7 @@ interface IconInterface {
   size?: string;
 }
 
-export function Icon({ icon, size = "4rem" }: IconInterface) {
+export function Icon({ icon, size = "2.5rem" }: IconInterface) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
