@@ -36,5 +36,6 @@ export function parseBibTex(entry: any) {
       error: true,
     };
   }
+  jsonParsed.string = parsedEntry;
   return jsonParsed;
 }

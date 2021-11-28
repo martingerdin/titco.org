@@ -6,6 +6,26 @@ import { Card } from "../components/Card";
 import Layout from "../components/Layout";
 import { parseBibTex } from "../lib/parseBibTex";
 
+interface ErrorCardInterface {
+  message: string;
+  string: string;
+}
+
+function ErrorCard({ message, string }: ErrorCardInterface) {
+  const [moreClicked, setMoreClicked] = useState(false);
+  return (
+    <Card title="Oops! This publication can not be displayed">
+      <a onClick={() => setMoreClicked(!moreClicked)}>More info</a>
+      {moreClicked && (
+        <>
+          <p>{message}</p>
+          <p>{string}</p>
+        </>
+      )}
+    </Card>
+  );
+}
+
 interface publicationInterface {
   key: string;
   doi: string;
@@ -21,6 +41,7 @@ interface publicationInterface {
   journal: string;
   message: string;
   error: boolean;
+  string: string;
 }
 
 interface publicationsInterface {
@@ -119,14 +140,12 @@ export default function PublicationsPage({
                 pages,
                 message,
                 error,
+                string,
               } = publication;
               return (
                 <div className="mx-4 block" key={key}>
                   {error ? (
-                    <Card
-                      title="This publication can not be displayed"
-                      subtitle={"Error: " + message}
-                    />
+                    <ErrorCard message={message} string={string} />
                   ) : (
                     <Publication
                       authors={author.replace(/\sand\s/g, ", ")}
