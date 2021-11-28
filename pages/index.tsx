@@ -33,15 +33,15 @@ export default function Home() {
 		    </div>
 		    <div className="buttons is-centered are-medium">
 			<Link href="/publications">
-			    <a className="button">
+			    <a className="button is-primary">
 				Publications
 			    </a>
 			</Link>
 			<Link href="/projects">
-			    <a className="button">Projects</a>
+			    <a className="button is-primary">Projects</a>
 			</Link>
 			<Link href="/data">
-			    <a className="button">Data</a>
+			    <a className="button is-primary">Data</a>
 			</Link>
 		    </div>
 		</div>
