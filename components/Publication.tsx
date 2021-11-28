@@ -27,7 +27,7 @@ export default function Publication({
   issue,
   pages,
 }: publicationProps) {
-  const [citationButtonText, setCitationButtonText] = useState("Citation");
+  const [citationButtonText, setCitationButtonText] = useState("Copy Citation");
   if (typeof month !== "undefined") {
     var Month = capitalise(month);
   } else {
@@ -36,17 +36,22 @@ export default function Publication({
   if (typeof issue === "undefined") {
     issue = "";
   }
-  const tags = [
-    { heading: "Journal", value: journal },
-    { heading: "Year", value: year },
-  ];
   return (
-    <Card tags={tags} title={title} subtitle={authors}>
+    <Card title={title} subtitle={authors} spacedTitle={true}>
+      <div className="pb-4">
+        <i>
+          {journal !== "" ? journal + ". " : ""}
+          {year !== "" ? year + " " : ""}
+          {Month !== "" ? Month + ";" : ""}
+          {volume !== "" ? volume : ""}
+          {issue !== "" ? "(" + issue + "):" : ""}
+          {pages !== "" ? pages : ""}.
+        </i>
+      </div>
       <div className="buttons">
         <button
-          className="button dropdown is-hoverable dropdown-trigger"
-          onMouseOver={() => setCitationButtonText("Copy Citation")}
-          onMouseOut={() => setCitationButtonText("Citation")}
+          className="button"
+          onMouseOut={() => setCitationButtonText("Copy Citation")}
           onClick={() => {
             const copyWorked = copy(
               authors +
@@ -73,29 +78,6 @@ export default function Publication({
           }}
         >
           {citationButtonText}
-          <div
-            className="dropdown-menu"
-            id="dropdown"
-            role="menu"
-            style={{ width: "300px", whiteSpace: "normal" }}
-          >
-            <div className="dropdown-content">
-              <div className="dropdown-item">
-                <p className="content">
-                  {authors !== "" ? authors + ". " : ""}
-                  {title !== "" ? <b>{title}. </b> : ""}
-                  <i>
-                    {journal !== "" ? journal + ". " : ""}
-                    {year !== "" ? year + " " : ""}
-                    {Month !== "" ? Month + ";" : ""}
-                    {volume !== "" ? volume : ""}
-                    {issue !== "" ? "(" + issue + "):" : ""}
-                    {pages !== "" ? pages : ""}.
-                  </i>
-                </p>
-              </div>
-            </div>
-          </div>
         </button>
         {typeof url !== "undefined" && (
           <LinkButton text="Fulltext" href={url} />

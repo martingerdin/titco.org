@@ -5,6 +5,7 @@ export interface CardInterface {
   tags?: TagInterface[] | "";
   title?: string;
   subtitle?: string;
+  spacedTitle?: boolean;
   children?: ReactNode;
 }
 
@@ -12,6 +13,7 @@ export function Card({
   tags = "",
   title = "",
   subtitle = "",
+  spacedTitle = false,
   children,
 }: CardInterface) {
   return (
@@ -22,7 +24,11 @@ export function Card({
             <TagList tags={tags} />
           </div>
         )}
-        {title !== "" && <h3 className="title is-4">{title}</h3>}
+        {title !== "" && (
+          <h3 className={`title is-4 ${spacedTitle && "is-spaced"}`}>
+            {title}
+          </h3>
+        )}
         {subtitle !== "" && <h4 className="subtitle is-6">{subtitle}</h4>}
         {children}
       </div>
