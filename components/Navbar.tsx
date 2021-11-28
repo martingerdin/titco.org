@@ -15,7 +15,7 @@ export default function Navbar({ activePage }: navbarProps) {
 	<div className="navbar-brand">
 	    <Link href="/" passHref>
 		<a className="navbar-item">
-		    <Logo />
+		    <Logo size="2rem" />
 		</a>
 	    </Link>
 	    <div

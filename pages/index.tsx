@@ -19,10 +19,10 @@ export default function Home() {
 		    <div className="columns is-centered">
 			<div className="column is-8">
 			    <div className="content has-text-centered">
-				<Logo size="1" />
+				<Logo size="5rem" />
 				<p className="subtitle">Improving Trauma Care Through Research</p>
 			    </div>				
-			    <div className="content">
+			    <div className="content has-text-centered">
 				Towards Improved Trauma Care Outcomes (TITCO) is a
 				consortium of researchers and clinicians who aim to
 				improve trauma care through research. Started in
