@@ -16,6 +16,7 @@ export function parseBibTex(entry: any) {
     .replace(/\\"{A}/g, "Ä")
     .replace(/\\{AA}/g, "Å")
     .replace(/\\"{O}/g, "Ö")
+    .replace(/{\\&}/g, "&")
     // Convert bibtex to something that can be parsed as json
     .replace(/\{/g, "")
     .replace(/\}/g, "");
