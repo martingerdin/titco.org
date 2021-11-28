@@ -46,13 +46,12 @@ export default function Home() {
 		    </div>
 		</div>
 	    </div>
-	    <div className="hero-footer has-background-light">
-		<div className="container has-text-centered my-5">
+	    <div className="hero-footer has-background-light px-5 py-5">
+		<div className="container has-text-centered">
 		    <p>Copyright &copy; {new Date().getUTCFullYear()} TITCO | 
-			Made with <Link href="https://nextjs.org/"><a>Next.js</a></Link>,&nbsp; 
-    <Link href="https://bulma.io/"><a>Bulma</a></Link>, and&nbsp;
-    <Link href="https://styled-components.com/"><a>Styled Components</a></Link>&nbsp;
-    | This website is open source on <Link href="https://github.com/titco/titco.org/"><a>GitHub</a></Link>
+			Made with <Link href="https://nextjs.org/"><a>Next.js</a></Link>, and{" "}
+    <Link href="https://bulma.io/"><a>Bulma</a></Link>{" "}
+    | This website is open source on <Link href="https://github.com/titco/titco.org/"><a>GitHub</a></Link>{" "} | Please submit feature requests and bug reports <Link href="https://github.com/titco/titco.org/issues"><a>here</a></Link>
     		    </p>
 		</div>
 	    </div>
