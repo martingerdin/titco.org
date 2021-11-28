@@ -85,7 +85,7 @@ export default function PublicationsPage({
         >
           All years
         </button>
-        {years.sort().map((year, key) => {
+        {years.map((year, key) => {
           return (
             <button
               key={key}
