@@ -23,7 +23,7 @@ export default function Home() {
 				<p className="subtitle is-size-4">Improving Trauma Care Through Research</p>
 			    </div>				
 			    <div className="content has-text-centered is-size-6">
-				Towards Improved Trauma Care Outcomes (TITCO) is a
+				Towards Improved Trauma Care Outcomes is a
 				consortium of researchers and clinicians who aim to
 				improve trauma care through research. Started in
 				2012 our consortium now conducts research and trauma
