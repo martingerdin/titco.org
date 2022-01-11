@@ -42,6 +42,7 @@ interface publicationInterface {
   message: string;
   error: boolean;
   string: string;
+  date: Date;
 }
 
 interface publicationsInterface {
@@ -52,7 +53,7 @@ export default function PublicationsPage({
   publications,
 }: publicationsInterface) {
   const sortedPublications = publications.sort((a: any, b: any) => {
-    return b.year - a.year;
+    return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
   });
   const years = [
     ...new Set(sortedPublications.map((publication) => publication.year)),
@@ -62,9 +63,10 @@ export default function PublicationsPage({
   if (selectedYears.length === 0) {
     setSelectedYears(years);
   }
-  const selectedPublications = sortedPublications.filter((publication) =>
-    selectedYears.includes(publication.year)
-  );
+  const selectedPublications = sortedPublications
+    .filter((publication) =>
+      selectedYears.includes(publication.year)
+    );
   return (
     <Layout
       title="Publications"
@@ -141,6 +143,7 @@ export default function PublicationsPage({
                 message,
                 error,
                 string,
+		date,
               } = publication;
               return (
                 <div className="mx-4 block" key={key}>
