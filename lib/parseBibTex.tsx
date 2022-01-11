@@ -31,6 +31,47 @@ export function parseBibTex(entry: any) {
     jsonParsed = JSON.parse(json);
     jsonParsed.message = "";
     jsonParsed.error = false;
+    let numMonth = 0;
+    switch (jsonParsed.month) {
+      case "jan":
+	numMonth = 1;
+	break;
+      case "feb":
+	numMonth = 2;
+	break;
+      case "mar":
+	numMonth = 3;
+	break;
+      case "apr":
+	numMonth = 4;
+	break;
+      case "may":
+	numMonth = 5;
+	break;
+      case "jun":
+	numMonth = 6;
+	break;
+      case "jul":
+	numMonth = 7;
+	break;
+      case "aug":
+	numMonth = 8;
+	break;
+      case "sep":
+	numMonth = 9;
+	break;
+      case "oct":
+	numMonth = 10;
+	break;
+      case "nov":
+	numMonth = 11;
+	break;
+      case "dec":
+	numMonth = 12;
+	break;
+    };
+    let date = new Date(jsonParsed.year + "-" + numMonth + "-1");
+    jsonParsed.date = date.toISOString();
   } catch (error) {
     jsonParsed = {
       message: "The publication could not be parsed",
