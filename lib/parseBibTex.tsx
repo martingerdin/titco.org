@@ -31,7 +31,7 @@ export function parseBibTex(entry: any) {
     jsonParsed = JSON.parse(json);
     jsonParsed.message = "";
     jsonParsed.error = false;
-    let numMonth = 0;
+    let numMonth = 1;
     switch (jsonParsed.month) {
       case "jan":
 	numMonth = 1;
