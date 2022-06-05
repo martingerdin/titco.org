@@ -3,7 +3,11 @@ interface logoProps {
 }
 
 export default function Logo({ size = "3rem" }:logoProps) {
+  const style = {
+    fontSize: `${size}`,
+    fontWeight: 900,
+  }
   return (
-    <p className={`title`} style={{fontSize: `${size}`, fontWeight: 900}}>TITCO</p>
+    <p className={`title`} style={style}>TITCO</p>
   )
 }
