@@ -10,7 +10,7 @@ export default function Home() {
     <>
 	<section className="hero is-fullheight">
 	    <div className="hero-header">
-		<div className="container has-text-centered my-4">
+		<div className="container my-4">
 		    <SocialLinks />
 		</div>
 	    </div>
