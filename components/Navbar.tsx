@@ -59,7 +59,7 @@ export default function Navbar({ activePage }: navbarProps) {
     <div className="navbar-end">
 	<div className="navbar-item">
 	    <div className="field is-grouped">
-		<SocialLinks dropdown={`${isActive ? "is-up" : ""}`} />
+		<SocialLinks />
 	    </div>
 	</div>
     </div>
