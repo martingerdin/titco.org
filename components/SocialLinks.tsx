@@ -17,7 +17,7 @@ export default function SocialLinks({isHome = false}: socialLinksProps) {
       text: "Visit us on GitHub",
     },
     {
-      href: "/",
+      href: "https://join.slack.com/t/teambengaltiger/shared_invite/zt-9pyvrok0-9OpClFBfWuTdxInVP_gxrw",
       icon: "slack",
       text: "Join us on Slack",
     },
