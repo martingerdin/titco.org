@@ -1,34 +1,45 @@
 import SocialLink from "./SocialLink";
 
 interface socialLinksProps {
-  dropdown?: string
+  isHome?: boolean;
 }
 
-export default function SocialLinks({ dropdown = "" }: socialLinksProps) {
+export default function SocialLinks({isHome = false}: socialLinksProps) {
+  const data = [
+    {
+      href: "mailto:info@titco.org",
+      icon: "send",
+      text: "Send us an email",
+    },
+    {
+      href: "https://github.com/titco",
+      icon: "github",
+      text: "Visit us on GitHub",
+    },
+    {
+      href: "https://join.slack.com/t/teambengaltiger/shared_invite/zt-9pyvrok0-9OpClFBfWuTdxInVP_gxrw",
+      icon: "slack",
+      text: "Join us on Slack",
+    },
+  ]
+  
   return (
     <>
-	<SocialLink
-	  href="mailto:info@titco.org"
-	  icon="send"
-	  id="email"
-	  text="Send us an email"
-	  dropdown = {dropdown}
-	/>
-	<SocialLink
-	  href="https://github.com/titco"
-	  icon="github"
-	  id="github"
-	  text="Visit us on GitHub"
-	  dropdown = {dropdown}
-	/>
-	<SocialLink
-	  href="/"
-	  icon="slack" 
-	  id="slack"
-	  text="Join us on Slack"
-	  dropdown = {dropdown}
-	  align="is-right"
-	/>
+	{data.map((item, key) => {
+	  const {href, icon, text} = item;
+	  const LinkItem = () => <SocialLink href={href} icon={icon} text={text} />
+	  return (
+	  <>
+	      {isHome
+	      ? <LinkItem key={key} />
+	      : (
+		<div className="navbar-item" key={key} >
+		    <LinkItem />  
+		</div>
+	      )}
+	  </>
+	  );
+	})}
     </>
   );
 }
