@@ -1,23 +1,45 @@
 import SocialLink from "./SocialLink";
 
-export default function SocialLinks() {
+interface socialLinksProps {
+  isHome: boolean;
+}
+
+export default function SocialLinks({isHome = false}: socialLinksProps) {
+  const data = [
+    {
+      href: "mailto:info@titco.org",
+      icon: "send",
+      text: "Send us an email",
+    },
+    {
+      href: "https://github.com/titco",
+      icon: "github",
+      text: "Visit us on GitHub",
+    },
+    {
+      href: "/",
+      icon: "slack",
+      text: "Join us on Slack",
+    },
+  ]
+  
   return (
-    <p className="buttons is-centered">
-	<SocialLink
-	  href="mailto:info@titco.org"
-	  icon="send"
-	  text="Send us an email"
-	/>
-	<SocialLink
-	  href="https://github.com/titco"
-	  icon="github"
-	  text="Visit us on GitHub"
-	/>
-	<SocialLink
-	  href="/"
-	  icon="slack" 
-	  text="Join us on Slack"
-	/>
-    </p>
+    <>
+	{data.map((item, key) => {
+	  const {href, icon, text} = item;
+	  const LinkItem = () => <SocialLink href={href} icon={icon} text={text} />
+	  return (
+	  <>
+	      {isHome
+	      ? <LinkItem key={key} />
+	      : (
+		<div className="navbar-item" key={key} >
+		    <LinkItem />  
+		</div>
+	      )}
+	  </>
+	  );
+	})}
+    </>
   );
 }

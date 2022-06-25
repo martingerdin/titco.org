@@ -1,19 +1,16 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Logo from "../components/Logo";
+import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
 
 export default function Home() {
-  useEffect(() => {document.querySelector("body").classList.remove("has-navbar-fixed-top")})
+  //useEffect(() => {document.querySelector("body").classList.remove("has-navbar-fixed-top")})
   
   return (
     <>
+	<Navbar isHome={true} activePage="home" />
 	<section className="hero is-fullheight">
-	    <div className="hero-header">
-		<div className="container my-4">
-		    <SocialLinks />
-		</div>
-	    </div>
 	    <div className="hero-body">
 		<div className="container">
 		    <div className="columns is-centered">
