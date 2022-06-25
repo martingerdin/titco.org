@@ -1,7 +1,7 @@
 import SocialLink from "./SocialLink";
 
 interface socialLinksProps {
-  isHome: boolean;
+  isHome?: boolean;
 }
 
 export default function SocialLinks({isHome = false}: socialLinksProps) {
