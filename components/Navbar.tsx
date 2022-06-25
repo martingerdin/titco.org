@@ -4,8 +4,8 @@ import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
 
 interface navbarProps {
-  isHome: boolean;
   activePage: string;
+  isHome?: boolean;  
 }
 
 export default function Navbar({ isHome = false, activePage }: navbarProps) {
