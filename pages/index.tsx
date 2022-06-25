@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
 	<Navbar isHome={true} activePage="home" />
-	<section className="hero is-fullheight">
+	<section className="hero is-fullheight-with-navbar">
 	    <div className="hero-body">
 		<div className="container">
 		    <div className="columns is-centered">
