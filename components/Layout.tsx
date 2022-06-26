@@ -18,9 +18,9 @@ export default function Layout({
   subtitle = "",
   currentPageName = null,
 }: layoutProps) {
-  useEffect(() => {
-    document.querySelector("body").classList.add("has-navbar-fixed-top");
-  });
+  //useEffect(() => {
+//    document.querySelector("body").classList.add("has-navbar-fixed-top");
+  //});
 
   const router = useRouter();
   const { asPath } = router;

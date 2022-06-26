@@ -8,7 +8,7 @@ interface breadcrumbProps {
 
 export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProps) {
   return (
-    <div className="section" style={{paddingTop: "3rem"}}>
+    <div className="section" style={{paddingTop: "4.25rem"}}> <!-- The 4.25 rem is to account for the fixed navbar height  -->
 	<nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 	    <ul>
 		<li><Link href="/"><a>Home</a></Link></li>
