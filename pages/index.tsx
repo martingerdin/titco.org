@@ -5,8 +5,10 @@ import Navbar from "../components/Navbar";
 export default function Home() {
   return (
     <>
-	<Navbar isHome={true} activePage="home" />
 	<section className="hero is-fullheight">
+	    <div className="hero-header">
+		<Navbar isHome={true} activePage="home" />
+	    </div>
 	    <div className="hero-body">
 		<div className="container">
 		    <div className="columns is-centered">
