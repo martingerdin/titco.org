@@ -18,10 +18,6 @@ export default function Layout({
   subtitle = "",
   currentPageName = null,
 }: layoutProps) {
-  useEffect(() => {
-    document.querySelector("body").classList.add("has-navbar-fixed-top");
-  });
-
   const router = useRouter();
   const { asPath } = router;
   const pathNames = asPath.split("/");
@@ -31,7 +27,7 @@ export default function Layout({
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
       <Navbar activePage={capitalise(pathNames[1])} />
-      <div style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: "1", paddingTop: "3.25rem" }}>
         <Breadcrumb pathNames={pathNames} currentPageName={currentPageName} />
         {(title !== "" || subtitle !== "") && (
           <section className="section">
