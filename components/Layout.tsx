@@ -26,7 +26,7 @@ export default function Layout({
   return (
     <>
 	<Head>
-	    <title>{title} | TITCO </title>
+	    <title>{`${title !== "" ? title : currentPageName} | TITCO`}</title>
 	</Head>
 	<div
 	  style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}

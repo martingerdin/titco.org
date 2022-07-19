@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdi/js": "^6.9.96",
     "@mdi/react": "^1.6.0",
     "bulma": "^0.9.4",
     "copy-to-clipboard": "^3.3.1",
