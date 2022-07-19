@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Logo from "../components/Logo";
 import Navbar from "../components/Navbar";
@@ -5,6 +6,9 @@ import Navbar from "../components/Navbar";
 export default function Home() {
   return (
     <>
+	<Head>
+	    <title>Home | TITCO</title>
+	</Head>
 	<section className="hero is-fullheight">
 	    <div className="hero-header">
 		<Navbar isHome={true} activePage="home" />
