@@ -11,8 +11,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>13:00 - 15:00</td>
-		    <td>Johanna Berg's PhD half-time seminar</td>
-		    <td></td>
+		    <td colSpan={2}>Johanna Berg's PhD half-time seminar</td>
 		</tr>
 		<tr>
 		    <td>17:30</td>
@@ -55,8 +54,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>10:30-11:00</td>
-		    <td><em>Tea</em></td>
-		    <td></td>
+		    <td colSpan={2}><em>Tea</em></td>
 		</tr>
 		<tr>
 		    <td>11:00-11:45</td>
@@ -91,7 +89,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>12:45-14:00</td>
-		    <td><p><em>Lunch at <a href="https://goo.gl/maps/AxYvGbD1A9FmjmEKA">Nanna Svartz</a></em></p></td>
+		    <td colSpan={2}><p><em>Lunch at <a href="https://goo.gl/maps/AxYvGbD1A9FmjmEKA">Nanna Svartz</a></em></p></td>
 		</tr>
 		<tr>
 		    <td>14:00 - 14:30</td>
@@ -107,8 +105,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>15.30 - 15.45</td>
-		    <td><em>Tea</em></td>
-		    <td></td>
+		    <td colSpan={2}><em>Tea</em></td>
 		</tr>
 		<tr>
 		    <td></td>
@@ -127,7 +124,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>19:00</td>
-		    <td><p><em>Dinner at <a href="https://goo.gl/maps/xtqitwQ3s8UUCQ5f7">Svarta Räfven</a></em></p></td>
+		    <td colSpan={2}><p><em>Dinner at <a href="https://goo.gl/maps/xtqitwQ3s8UUCQ5f7">Svarta Räfven</a></em></p></td>
 		</tr>
 	    </tbody>
 	</table>
@@ -152,8 +149,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>10:30-11:00</td>
-		    <td><em>Tea</em></td>
-		    <td></td>
+		    <td colSpan={2}><em>Tea</em></td>
 		</tr>
 		<tr>
 		    <td>11:00-13:00</td>
@@ -163,8 +159,7 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>13:00 – 14:00</td>
-		    <td><p><em>Lunch at <a href="https://goo.gl/maps/AxYvGbD1A9FmjmEKA">Nanna Svartz</a></em></p></td>
-		    <td></td>
+		    <td colSpan={2}><p><em>Lunch at <a href="https://goo.gl/maps/AxYvGbD1A9FmjmEKA">Nanna Svartz</a></em></p></td>
 		</tr>
 		<tr>
 		    <td>14:30 – 15:15</td>
@@ -186,13 +181,11 @@ export default function AnnualMeetingAgenda2022 () {
 		</tr>
 		<tr>
 		    <td>15:45 onwards</td>
-		    <td><em>Tea</em></td>
-		    <td></td>
+		    <td colSpan={2}><em>Tea</em></td>
 		</tr>
 		<tr>
 		    <td>19:00</td>
-		    <td><p><em>Dinner at <a href="https://goo.gl/maps/yi8xTgHppd7pCc1FA">Scandic Grand Central</a></em></p></td>
-		    <td></td>
+		    <td colSpan={2}><p><em>Dinner at <a href="https://goo.gl/maps/yi8xTgHppd7pCc1FA">Scandic Grand Central</a></em></p></td>
 		</tr>
 	    </tbody>
 	</table>
