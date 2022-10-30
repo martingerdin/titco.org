@@ -31,6 +31,16 @@ export default function Home() {
 			</div>
 		    </div>
 		    <div className="buttons is-centered are-medium">
+			<Link href="/annual-meeting">
+			    <a className="button is-dark">
+				<span className="icon">
+				    <img src="/firework.svg" />
+				</span>
+				<span>
+				    Annual Meeting 2022
+				</span>
+			    </a>
+			</Link>
 			<Link href="/publications">
 			    <a className="button is-primary">
 				Publications
