@@ -7,7 +7,7 @@ export default function AnnualMeetingPage() {
   return (
     <Layout
       title="Annual Meeting 2022"
-      subtitle="Welcome to Stockholm December 5-8!"
+      subtitle="Welcome to Stockholm December 5-7!"
       currentPageName="Annual Meeting 2022"
     >
 	<section className="section">
