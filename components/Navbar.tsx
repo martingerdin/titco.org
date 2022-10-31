@@ -39,13 +39,19 @@ export default function Navbar({ isHome = false, activePage }: navbarProps) {
 	      </div>
 
 	      <div
-		id="navbarExampleTransparentExample"
-		className={`navbar-menu ${isActive ? 'is-active' : ''}`}
+		  id="navbarExampleTransparentExample"
+		  className={`navbar-menu ${isActive ? 'is-active' : ''}`}
 	      >
 		  <div className="navbar-start">
 		      <Link href="/" passHref>
 			  <a className="navbar-item">
 			      Home
+			  </a>
+		      </Link>
+		      <Link href="/annual-meeting" passHref>
+			  <a className={`navbar-item ${activePage === "Annual Meeting" ? "is-active" : ""}`}>
+			      <span><img src="/firework.svg" /></span>
+			      <span>Annual Meeting 2022</span>
 			  </a>
 		      </Link>
 		      <Link href="/publications" passHref>
