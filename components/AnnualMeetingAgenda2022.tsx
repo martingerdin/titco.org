@@ -42,7 +42,7 @@ export default function AnnualMeetingAgenda2022 () {
 		<tr>
 		    <td>09:15-09:45</td>
 		    <td><p>10 years of TITCO</p>
-			<p><strong>Nobhojit Roy and Martin Gerdin Wärnberg</strong></p></td>
+			<p><strong>Nobhojit Roy, Martin Gerdin Wärnberg, Jyoti Kamble and Debojit Basak</strong></p></td>
 		    <td></td>
 		</tr>
 		<tr>
