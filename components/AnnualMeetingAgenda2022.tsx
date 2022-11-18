@@ -65,7 +65,7 @@ export default function AnnualMeetingAgenda2022 () {
 		<tr>
 		    <td>11:45-12:00</td>
 		    <td><p>TAFT Site Presentation – SSKM, Kolkata</p>
-			<p><strong>Shamita Chatterjee</strong></p></td>
+			<p><strong>Makhan Lal Saha</strong></p></td>
 		    <td></td>
 		</tr>
 		<tr>
