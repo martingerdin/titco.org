@@ -32,7 +32,7 @@ sampleSize: "306"
 links:
   - name: ClinicalTrials.gov
     href: https://clinicaltrials.gov/ct2/show/NCT05417243
-  - name: tern.network
+  - name: Project Website
     href: https://tern.network
   - name: Published Protocol
     href: https://bmjopen.bmj.com/content/12/4/e057504.full
