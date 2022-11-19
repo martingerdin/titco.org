@@ -1,5 +1,5 @@
 ---
-title: The Trauma Life Support Training Effectiveness Network Pilot
+title: The Trauma Life Support Training Effectiveness Network Pilot Trial
 subtitle: A pilot multicentre cluster randomised trial to compare the effect of trauma life support training programmes on patient and provider outcomes
 status: Ongoing
 start: 2022
