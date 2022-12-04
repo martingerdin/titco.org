@@ -123,6 +123,10 @@ export default function AnnualMeetingAgenda2022 () {
 			<p><strong>Johanna Berg</strong></p></td>
 		</tr>
 		<tr>
+		    <td>16:30</td>
+		    <td colSpan={2}><p>Visit to the Karolinska University Hospital's trauma centre</p></td>
+		</tr>
+		<tr>
 		    <td>19:00</td>
 		    <td colSpan={2}><p><em>Dinner at <a href="https://goo.gl/maps/xtqitwQ3s8UUCQ5f7">Svarta Räfven</a></em></p></td>
 		</tr>
