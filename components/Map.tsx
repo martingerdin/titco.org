@@ -1,6 +1,7 @@
 import { GoogleCharts } from "google-charts";
 import { useEffect, useRef, useState } from "react";
 
+
 interface mapProps {
   data: location[];
 }
