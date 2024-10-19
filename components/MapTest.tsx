@@ -12,7 +12,7 @@ interface MapProps {
 const MapComponent: React.FC<MapProps> = ({ data }) => {
     const mapContainerStyle = {
         width: '100%',
-        height: '400px'
+        height: '10%'
     };
 
     const center = {
