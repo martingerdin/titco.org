@@ -1,8 +1,9 @@
 ---
 title: The Trauma Audit Filters Trial
 subtitle: An Interrupted Time Series Trial on the Effect of Implementing Trauma Audit Filters on Outcomes of Patients Admitted with Trauma in Urban India
-status: Ongoing
+status: Completed
 start: 2017
+end: 2023
 pageName: TAFT
 aim: To assess if institutional implementation of audit filters reduce mortality in adult trauma patients
 centres:

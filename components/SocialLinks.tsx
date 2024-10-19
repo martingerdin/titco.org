@@ -4,7 +4,7 @@ interface socialLinksProps {
   isHome?: boolean;
 }
 
-export default function SocialLinks({isHome = false}: socialLinksProps) {
+export default function SocialLinks({ isHome = false }: socialLinksProps) {
   const data = [
     {
       href: "mailto:info@titco.org",
@@ -16,30 +16,25 @@ export default function SocialLinks({isHome = false}: socialLinksProps) {
       icon: "github",
       text: "Visit us on GitHub",
     },
-    {
-      href: "https://join.slack.com/t/teambengaltiger/shared_invite/zt-9pyvrok0-9OpClFBfWuTdxInVP_gxrw",
-      icon: "slack",
-      text: "Join us on Slack",
-    },
   ]
-  
+
   return (
     <>
-	{data.map((item, key) => {
-	  const {href, icon, text} = item;
-	  const LinkItem = () => <SocialLink href={href} icon={icon} text={text} />
-	  return (
-	  <>
-	      {isHome
-	      ? <LinkItem key={key} />
-	      : (
-		<div className="navbar-item" key={key} >
-		    <LinkItem />  
-		</div>
-	      )}
-	  </>
-	  );
-	})}
+      {data.map((item, key) => {
+        const { href, icon, text } = item;
+        const LinkItem = () => <SocialLink href={href} icon={icon} text={text} />
+        return (
+          <>
+            {isHome
+              ? <LinkItem key={key} />
+              : (
+                <div className="navbar-item" key={key} >
+                  <LinkItem />
+                </div>
+              )}
+          </>
+        );
+      })}
     </>
   );
 }

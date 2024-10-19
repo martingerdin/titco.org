@@ -1,8 +1,9 @@
 ---
 title: The Trauma Life Support Training Effectiveness Network Pilot Trial
 subtitle: A pilot multicentre cluster randomised trial to compare the effect of trauma life support training programmes on patient and provider outcomes
-status: Ongoing
+status: Completed
 start: 2022
+end: 2023
 pageName: TERN
 aim: To assess the feasibility of conducting a cluster randomised controlled trial comparing advanced trauma life support (ATLS) and primary trauma care (PTC) with standard care.
 centres:

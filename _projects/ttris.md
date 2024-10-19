@@ -1,8 +1,9 @@
 ---
 title: The Trauma Triage Study
 subtitle: A Comparison of Prediction Models for Triage of Adult Trauma Patients Presenting to Emergency Departments in Urban India
-status: Ongoing
+status: Completed
 start: 2016
+end: 2022
 pageName: TTRIS
 aim: To validate and compare published prediction models for use in early trauma care
 centres:
