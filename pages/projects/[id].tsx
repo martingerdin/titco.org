@@ -9,7 +9,6 @@ import Layout from "../../components/Layout";
 import { Map } from "../../components/Map";
 import { ProjectSummary } from "../../components/ProjectSummary";
 import { LinkButton } from "../../components/LinkButton";
-import MapTest from "../../components/MapTest";
 
 export default function ProjectTemplate({ project }: any) {
   const { data, content } = matter(project);
