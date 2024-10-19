@@ -52,7 +52,6 @@ export default function ProjectTemplate({ project }: any) {
             >
               <ProjectSummary {...data} />
               <figure id="map" className="image is-3by1">
-                <MapTest data={centres} />
                 <Map data={centres} />
               </figure>
             </div>

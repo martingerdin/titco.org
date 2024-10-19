@@ -34,9 +34,9 @@ export function Map({ data }: mapProps) {
       );
 
       var options = {
-        showTooltip: true,
+        showTooltip: false,
         showInfoWindow: false,
-        mapType: "terrain",
+        mapType: "hybrid",
       };
 
       var map = new GoogleCharts.api.visualization.Map(
