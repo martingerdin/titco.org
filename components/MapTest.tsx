@@ -1,5 +1,5 @@
 import React from 'react';
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 
 interface MapProps {
     data: {
@@ -32,7 +32,7 @@ const MapComponent: React.FC<MapProps> = ({ data }) => {
                 style={mapContainerStyle}
             >
                 {data.map((centre, index) => (
-                    <Marker
+                    <AdvancedMarker
                         key={index}
                         position={{ lat: centre.latitude, lng: centre.longitude }}
                         title={centre.name}
