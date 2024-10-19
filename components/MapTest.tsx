@@ -1,5 +1,5 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React from 'react';
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
 interface MapProps {
     data: {
@@ -12,7 +12,7 @@ interface MapProps {
 const MapComponent: React.FC<MapProps> = ({ data }) => {
     const mapContainerStyle = {
         width: '100%',
-        height: '10%'
+        height: '10%' // Adjust as needed
     };
 
     const center = {
@@ -20,12 +20,16 @@ const MapComponent: React.FC<MapProps> = ({ data }) => {
         lng: data[0]?.longitude || 78.9629
     };
 
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY || '';
+    const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAP_ID || '';
+
     return (
-        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY || ''}>
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={center}
+        <APIProvider apiKey={apiKey}>
+            <Map
+                mapId={mapId}
                 zoom={5}
+                center={center}
+                style={mapContainerStyle}
             >
                 {data.map((centre, index) => (
                     <Marker
@@ -34,8 +38,8 @@ const MapComponent: React.FC<MapProps> = ({ data }) => {
                         title={centre.name}
                     />
                 ))}
-            </GoogleMap>
-        </LoadScript>
+            </Map>
+        </APIProvider>
     );
 };
 
