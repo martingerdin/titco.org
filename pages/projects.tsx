@@ -72,8 +72,8 @@ export default function ProjectsPage({ projectsData }: projectsPageProps) {
                         <p>{aim}</p>
                       </div>
                       <div className="buttons">
-                        <Link href={`/projects/${projectPage}`}>
-                          <a className="button">Read More</a>
+                        <Link href={`/projects/${projectPage}`} className="button">
+                          Read More
                         </Link>
                         {typeof dataset !== "undefined" && (
                           <LinkButton href={dataset} text="Get Data" />

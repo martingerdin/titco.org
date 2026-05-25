@@ -1,9 +1,9 @@
+@use "../node_modules/bulma/sass" with (
+    $section-padding: 1.5rem 1.5rem,
+    $section-padding-desktop: 1.5rem 1.5rem
+);
+
 .social-link:hover {
     cursor: pointer;
     color: black;
 }
-
-$section-padding: 1.5rem 1.5rem;
-$section-padding-desktop: 1.5rem 1.5rem;
-
-@import "~bulma/bulma.sass";

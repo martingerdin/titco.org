@@ -32,27 +32,23 @@ export default function Home() {
 						</div>
 						<div className="buttons is-centered are-medium">
 							{/*
-			<Link href="/annual-meeting">
-			    <a className="button is-dark">
+			<Link href="/annual-meeting" className="button is-dark">
 				<span className="icon">
 				    <img src="/firework.svg" />
 				</span>
 				<span>
 				    Annual Meeting 2022
 				</span>
-			    </a>
 			</Link>
 			*/}
-							<Link href="/publications">
-								<a className="button is-primary">
-									Publications
-								</a>
+							<Link href="/publications" className="button is-primary">
+								Publications
 							</Link>
-							<Link href="/projects">
-								<a className="button is-primary">Projects</a>
+							<Link href="/projects" className="button is-primary">
+								Projects
 							</Link>
-							<Link href="/data">
-								<a className="button is-primary">Data</a>
+							<Link href="/data" className="button is-primary">
+								Data
 							</Link>
 						</div>
 					</div>
@@ -60,9 +56,9 @@ export default function Home() {
 				<div className="hero-footer has-background-light px-5 py-5">
 					<div className="container has-text-centered">
 						<p>Copyright &copy; {new Date().getUTCFullYear()} TITCO |
-							Made with <Link href="https://nextjs.org/"><a>Next.js</a></Link>, and{" "}
-							<Link href="https://bulma.io/"><a>Bulma</a></Link>{" "}
-							| This website is open source on <Link href="https://github.com/titco/titco.org/"><a>GitHub</a></Link>{" "} | Please submit feature requests and bug reports <Link href="https://github.com/titco/titco.org/issues"><a>here</a></Link>
+							Made with <Link href="https://nextjs.org/">Next.js</Link>, and{" "}
+							<Link href="https://bulma.io/">Bulma</Link>{" "}
+							| This website is open source on <Link href="https://github.com/titco/titco.org/">GitHub</Link>{" "} | Please submit feature requests and bug reports <Link href="https://github.com/titco/titco.org/issues">here</Link>
 						</p>
 					</div>
 				</div>

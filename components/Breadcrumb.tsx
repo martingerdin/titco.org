@@ -11,7 +11,7 @@ export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProp
     <div className="section"> 
 	<nav className="breadcrumb is-medium" aria-label="breadcrumbs">
 	    <ul>
-		<li><Link href="/"><a>Home</a></Link></li>
+		<li><Link href="/">Home</Link></li>
 		{
 		  pathNames.map((pathName, index) => {
 		    if (pathName === "") {
@@ -24,13 +24,11 @@ export function Breadcrumb({ pathNames, currentPageName = null }: breadcrumbProp
 			  className={`${index === pathNames.length - 1 && "is-active"}`}
 			>
 			    <Link href={link}>
-				<a>
-				    {
-				      index === pathNames.length - 1 && currentPageName !== null
-				      ? currentPageName
-				      : capitalise(pathName)
-				    }
-				</a>
+				{
+				  index === pathNames.length - 1 && currentPageName !== null
+				  ? currentPageName
+				  : capitalise(pathName)
+				}
 			    </Link>
 			</li>      
 		      );

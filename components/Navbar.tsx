@@ -22,10 +22,8 @@ export default function Navbar({ isHome = false, activePage }: navbarProps) {
 				: (
 					<>
 						<div className="navbar-brand">
-							<Link href="/" passHref>
-								<a className="navbar-item">
-									<Logo size="2rem" />
-								</a>
+							<Link href="/" className="navbar-item">
+								<Logo size="2rem" />
 							</Link>
 							<div
 								className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
@@ -43,33 +41,23 @@ export default function Navbar({ isHome = false, activePage }: navbarProps) {
 							className={`navbar-menu ${isActive ? 'is-active' : ''}`}
 						>
 							<div className="navbar-start">
-								<Link href="/" passHref>
-									<a className="navbar-item">
-										Home
-									</a>
+								<Link href="/" className="navbar-item">
+									Home
 								</Link>
 								{/*
-								<Link href="/annual-meeting" passHref>
-									<a className={`navbar-item ${activePage === "Annual Meeting" ? "is-active" : ""}`}>
-										<span><img src="/firework.svg" /></span>
-										<span>Annual Meeting 2022</span>
-									</a>
+								<Link href="/annual-meeting" className={`navbar-item ${activePage === "Annual Meeting" ? "is-active" : ""}`}>
+									<span><img src="/firework.svg" /></span>
+									<span>Annual Meeting 2022</span>
 								</Link>
 							*/}
-								<Link href="/publications" passHref>
-									<a className={`navbar-item ${activePage === "Publications" ? "is-active" : ""}`}>
-										Publications
-									</a>
+								<Link href="/publications" className={`navbar-item ${activePage === "Publications" ? "is-active" : ""}`}>
+									Publications
 								</Link>
-								<Link href="/projects" passHref>
-									<a className={`navbar-item ${activePage === "Projects" ? "is-active" : ""}`}>
-										Projects
-									</a>
+								<Link href="/projects" className={`navbar-item ${activePage === "Projects" ? "is-active" : ""}`}>
+									Projects
 								</Link>
-								<Link href="/data" passHref>
-									<a className={`navbar-item ${activePage === "Data" ? "is-active" : ""}`}>
-										Data
-									</a>
+								<Link href="/data" className={`navbar-item ${activePage === "Data" ? "is-active" : ""}`}>
+									Data
 								</Link>
 							</div>
 							<div className="navbar-end">

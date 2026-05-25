@@ -13,15 +13,13 @@ export default function SocialLink({
   text,
 }: socialLinkProps) {
   return (
-    <Link href={href} passHref>
-	<a className="button is-link is-light">
+    <Link href={href} className="button is-link is-light">
 	    <span className="icon">
 		<Icon icon={icon} />
 	    </span>
 	    <span>
 		{text}
 	    </span>
-	</a>
     </Link>
   );
 }

@@ -105,14 +105,12 @@ export default function ProjectTemplate({ project }: any) {
                   )}
                   <Link
                     href={`mailto:info@titco.org?subject="Regarding ${pageName}"`}
-                    passHref
+                    className="button is-info"
                   >
-                    <a className="button is-info">
-                      <span>Email Us About This Project</span>
-                      <span className="icon is-small pl-2">
-                        <Icon path={mdiSend} />
-                      </span>
-                    </a>
+                    <span>Email Us About This Project</span>
+                    <span className="icon is-small pl-2">
+                      <Icon path={mdiSend} />
+                    </span>
                   </Link>
                 </div>
               </div>
