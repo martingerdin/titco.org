@@ -91,7 +91,7 @@ export default function PublicationsPage({
           return (
             <button
               key={key}
-              className={`button is-outlined ${
+              className={`button ${
                 selectedYears.includes(year) ? "is-selected is-primary" : ""
               }`}
               onClick={() => {
